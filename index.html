@@ -276,6 +276,66 @@ footer{background:var(--ink);border-top:1px solid rgba(139,110,78,.1);padding:28
   footer{padding:24px 20px;}
   nav{padding:0 20px;}
 }
+
+/* ── SKELETON LOADING ── */
+.cuaderno-skeleton { pointer-events:none; }
+.sk-tag,.sk-date,.sk-title,.sk-excerpt {
+  background:linear-gradient(90deg, rgba(139,110,78,.1) 0%, rgba(139,110,78,.2) 50%, rgba(139,110,78,.1) 100%);
+  background-size:200% 100%;
+  animation:shimmer 1.6s infinite;
+  border-radius:2px; margin-bottom:12px;
+}
+.cuaderno-featured .sk-tag { width:80px; height:20px; }
+.cuaderno-featured .sk-date { width:100px; height:14px; }
+.cuaderno-featured .sk-title { width:85%; height:32px; margin-top:auto; }
+.cuaderno-featured .sk-excerpt { width:100%; height:16px; }
+.cuaderno-featured .sk-excerpt.sk-short { width:70%; }
+.cuaderno-card .sk-tag { width:48px; height:16px; }
+.cuaderno-card .sk-title { width:90%; height:18px; }
+.cuaderno-card .sk-excerpt { width:100%; height:14px; }
+@keyframes shimmer {
+  0% { background-position:200% 0; }
+  100% { background-position:-200% 0; }
+}
+
+/* ── RSS CUADERNO PAGE ── */
+.rss-featured {
+  display:grid; grid-template-columns:420px 1fr;
+  background:var(--ink); text-decoration:none; color:inherit;
+  border-bottom:3px solid transparent; transition:border-color .2s;
+  margin-bottom:3px; min-height:320px;
+}
+.rss-featured:hover { border-bottom-color:var(--earth-light); }
+.rss-featured-img {
+  background-size:cover; background-position:center;
+  opacity:.6; filter:grayscale(20%) contrast(1.1);
+  transition:opacity .3s;
+}
+.rss-featured:hover .rss-featured-img { opacity:.75; }
+.rss-featured-body { padding:40px 44px; display:flex; flex-direction:column; gap:10px; }
+.rss-featured-title { font-family:'Playfair Display',serif; font-size:clamp(22px,2.5vw,32px); font-weight:900; color:var(--cream); line-height:1.15; margin-top:auto; }
+.rss-featured-date { font-family:'EB Garamond',serif; font-size:13px; font-style:italic; color:var(--earth-light); opacity:.7; }
+.rss-featured-excerpt { font-family:'EB Garamond',serif; font-size:16px; font-style:italic; color:rgba(245,239,224,.5); line-height:1.7; }
+.rss-cards-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:3px; background:var(--line); }
+.rss-card { background:var(--paper); text-decoration:none; color:inherit; display:flex; flex-direction:column; border-bottom:2px solid transparent; transition:background .2s,border-color .2s; }
+.rss-card:hover { background:var(--cream-dark); border-bottom-color:var(--earth); }
+.rss-card-img { height:140px; background-size:cover; background-position:center; filter:grayscale(15%) contrast(1.05); opacity:.8; transition:opacity .3s; }
+.rss-card:hover .rss-card-img { opacity:1; }
+.rss-card-body { padding:20px 22px; display:flex; flex-direction:column; flex:1; gap:6px; }
+.rss-card-title { font-family:'Playfair Display',serif; font-size:16px; font-weight:700; color:var(--ink); line-height:1.25; }
+.rss-card-excerpt { font-family:'EB Garamond',serif; font-size:14px; font-style:italic; color:var(--text-body); line-height:1.6; flex:1; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.cuaderno-rss-error { font-family:'EB Garamond',serif; font-size:17px; font-style:italic; color:var(--earth); padding:32px 0; text-align:center; }
+
+@media(max-width:900px){
+  .rss-featured { grid-template-columns:1fr; }
+  .rss-featured-img { height:200px; }
+  .rss-featured-body { padding:28px 28px; }
+  .rss-cards-grid { grid-template-columns:repeat(2,1fr); }
+}
+@media(max-width:560px){
+  .rss-cards-grid { grid-template-columns:1fr; }
+}
+
 </style>
 </head>
 <body>
@@ -358,38 +418,25 @@ footer{background:var(--ink);border-top:1px solid rgba(139,110,78,.1);padding:28
       </div>
       <a href="cuaderno/index.html" class="link-all">Ver todo el cuaderno</a>
     </div>
-    <div class="cuaderno-layout reveal">
-      <a class="cuaderno-featured" href="https://medium.com/@olzinmospas/fritura-r%C3%A1pida-japonesa-69a63db029ec" target="_blank" rel="noopener">
-        <span class="cf-tag">GE · Pinned</span>
-        <p class="cf-date">14 octubre, 2025</p>
-        <h3 class="cf-title">Fritura rápida japonesa</h3>
-        <p class="cf-excerpt">El otro día me encontré a un ninja en mitad de la calle. Según me dijo después, no puedo decir que "lo encontré"…</p>
-        <span class="cf-more">Leer en Medium</span>
-      </a>
-      <div class="cuaderno-sub-grid">
-        <a class="cuaderno-card" href="https://medium.com/@olzinmospas/ge7-rapaz-material-bfa7b5f361c2" target="_blank" rel="noopener">
-          <div class="cc-meta"><span class="cc-tag">GE7</span><span class="cc-date">5 dic, 2025</span></div>
-          <h3 class="cc-title">Rapaz material</h3>
-          <p class="cc-excerpt">Una cuestión que descoloca mucho es cuando tu peluquero está de vacaciones…</p>
-          <span class="cc-more">Leer en Medium</span>
-        </a>
-        <a class="cuaderno-card" href="https://medium.com/@olzinmospas/ge6-estimado-se%C3%B1or-inquilino-6dc4c1d53d1d" target="_blank" rel="noopener">
-          <div class="cc-meta"><span class="cc-tag">GE6</span><span class="cc-date">21 nov, 2025</span></div>
-          <h3 class="cc-title">Estimado señor inquilino</h3>
-          <p class="cc-excerpt">En Portugal la gente tiene asimilado que va a esperar. Es parte del espíritu nacional…</p>
-          <span class="cc-more">Leer en Medium</span>
-        </a>
-        <a class="cuaderno-card" href="https://medium.com/@olzinmospas/ge5-la-plaza-de-la-libertad-1b01c00684c2" target="_blank" rel="noopener">
-          <div class="cc-meta"><span class="cc-tag">GE5</span><span class="cc-date">14 nov, 2025</span></div>
-          <h3 class="cc-title">La plaza de la libertad</h3>
-          <p class="cc-excerpt">Por motivos que no vienen al cuento, la semana pasada pasé unos días en Madrid…</p>
-          <span class="cc-more">Leer en Medium</span>
-        </a>
+    <!-- ── CUADERNO DINÁMICO — cargado desde Medium RSS ── -->
+    <div id="cuaderno-layout" class="cuaderno-layout reveal">
+      <!-- Skeleton mientras carga -->
+      <div class="cuaderno-featured cuaderno-skeleton">
+        <div class="sk-tag"></div>
+        <div class="sk-date"></div>
+        <div class="sk-title"></div>
+        <div class="sk-excerpt"></div>
+        <div class="sk-excerpt sk-short"></div>
+      </div>
+      <div class="cuaderno-sub-grid" id="cuaderno-sub">
+        <div class="cuaderno-card cuaderno-skeleton"><div class="sk-tag"></div><div class="sk-title"></div><div class="sk-excerpt"></div></div>
+        <div class="cuaderno-card cuaderno-skeleton"><div class="sk-tag"></div><div class="sk-title"></div><div class="sk-excerpt"></div></div>
+        <div class="cuaderno-card cuaderno-skeleton"><div class="sk-tag"></div><div class="sk-title"></div><div class="sk-excerpt"></div></div>
       </div>
     </div>
-    <div class="cuaderno-strip reveal">
+    <div class="cuaderno-strip reveal" id="cuaderno-strip">
       <div class="cs-dot">M</div>
-      <p class="cs-text">Serie completa en Medium · 7 entregas · En español y portugués</p>
+      <p class="cs-text" id="cs-count">Cargando publicaciones…</p>
       <a href="https://medium.com/@olzinmospas" target="_blank" rel="noopener" class="cs-link">Seguir en Medium</a>
     </div>
   </div>
@@ -421,7 +468,7 @@ footer{background:var(--ink);border-top:1px solid rgba(139,110,78,.1);padding:28
   </div>
 </section>
 
-<!-- ── HEMEROTECA COMPACTA 
+<!-- ── HEMEROTECA COMPACTA ── -->
 <section class="hemeroteca-strip" id="hemeroteca">
   <div class="hstrip-inner">
     <div class="hstrip-header reveal">
@@ -560,6 +607,161 @@ document.getElementById('nlForm').addEventListener('submit', e => {
     e.target.querySelector('.nl-btn').textContent = '✓';
   }
 });
+</script>
+<script>
+// ── MEDIUM RSS LOADER ──────────────────────────────────────────
+(function() {
+  var FEED = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@olzinmospas&api_key=&count=20';
+  var MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
+  function fmtDate(str) {
+    var d = new Date(str);
+    return d.getDate() + ' ' + MONTHS_ES[d.getMonth()] + ', ' + d.getFullYear();
+  }
+
+  function stripHtml(html) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function excerpt(html, len) {
+    var txt = stripHtml(html);
+    return txt.length > len ? txt.slice(0, len).replace(/\w+$/, '') + '…' : txt;
+  }
+
+  function getImg(item) {
+    // Try thumbnail from rss2json, then og:image in content
+    if (item.thumbnail && item.thumbnail.startsWith('http')) return item.thumbnail;
+    var m = item.content && item.content.match(/<img[^>]+src="([^"]+)"/);
+    return m ? m[1] : null;
+  }
+
+  function inferTag(item) {
+    var title = (item.title || '').toUpperCase();
+    // GE series detection
+    var ge = title.match(/GE\s*(\d+)/);
+    if (ge) return 'GE' + ge[1];
+    var cats = item.categories || [];
+    if (cats.length) return cats[0];
+    return 'Cuaderno';
+  }
+
+  // ── HOME: featured + 3 sub-cards ──────────────────────────────
+  function renderHome(items) {
+    var layout = document.getElementById('cuaderno-layout');
+    var countEl = document.getElementById('cs-count');
+    if (!layout) return;
+
+    if (!items || items.length === 0) {
+      layout.innerHTML = '<p style="color:var(--earth);font-family:EB Garamond,serif;font-style:italic;padding:32px;">No se pudieron cargar los textos. <a href="https://medium.com/@olzinmospas" target="_blank" style="color:var(--earth-light)">Ver en Medium →</a></p>';
+      return;
+    }
+
+    var featured = items[0];
+    var subs = items.slice(1, 4);
+
+    var subHTML = subs.map(function(item) {
+      var img = getImg(item);
+      var imgBg = img ? 'style="background-image:url(' + img + ');background-size:cover;background-position:center;"' : '';
+      return '<a class="cuaderno-card" href="' + item.link + '" target="_blank" rel="noopener">'
+        + '<div class="cc-meta"><span class="cc-tag">' + inferTag(item) + '</span>'
+        + '<span class="cc-date">' + fmtDate(item.pubDate) + '</span></div>'
+        + '<h3 class="cc-title">' + item.title + '</h3>'
+        + '<p class="cc-excerpt">' + excerpt(item.content || item.description, 100) + '</p>'
+        + '<span class="cc-more">Leer en Medium</span>'
+        + '</a>';
+    }).join('');
+
+    layout.innerHTML =
+      '<a class="cuaderno-featured" href="' + featured.link + '" target="_blank" rel="noopener">'
+      + '<span class="cf-tag">' + inferTag(featured) + ' · Último</span>'
+      + '<p class="cf-date">' + fmtDate(featured.pubDate) + '</p>'
+      + '<h3 class="cf-title">' + featured.title + '</h3>'
+      + '<p class="cf-excerpt">' + excerpt(featured.content || featured.description, 160) + '</p>'
+      + '<span class="cf-more">Leer en Medium</span>'
+      + '</a>'
+      + '<div class="cuaderno-sub-grid">' + subHTML + '</div>';
+
+    layout.classList.add('visible');
+
+    if (countEl) {
+      countEl.textContent = 'Serie completa en Medium · ' + items.length + ' entregas · En español y portugués';
+    }
+  }
+
+  // ── CUADERNO PAGE: full grid ───────────────────────────────────
+  function renderCuaderno(items) {
+    var grid = document.getElementById('cuaderno-rss-grid');
+    var countEl = document.getElementById('cuaderno-count');
+    if (!grid) return;
+
+    if (!items || items.length === 0) {
+      grid.innerHTML = '<p style="grid-column:1/-1;color:var(--earth);font-family:EB Garamond,serif;font-style:italic;padding:32px 0;">No se pudieron cargar los textos. <a href="https://medium.com/@olzinmospas" target="_blank" style="color:var(--earth)">Ver en Medium →</a></p>';
+      return;
+    }
+
+    if (countEl) countEl.textContent = items.length + ' textos publicados';
+
+    var featured = items[0];
+    var rest = items.slice(1);
+
+    // Featured card (full width)
+    var featHTML = '<a class="rss-featured" href="' + featured.link + '" target="_blank" rel="noopener">';
+    var img = getImg(featured);
+    if (img) featHTML += '<div class="rss-featured-img" style="background-image:url(' + img + ')"></div>';
+    featHTML += '<div class="rss-featured-body">'
+      + '<span class="cf-tag">' + inferTag(featured) + ' · Último</span>'
+      + '<h2 class="rss-featured-title">' + featured.title + '</h2>'
+      + '<p class="rss-featured-date">' + fmtDate(featured.pubDate) + '</p>'
+      + '<p class="rss-featured-excerpt">' + excerpt(featured.content || featured.description, 200) + '</p>'
+      + '<span class="cf-more">Leer en Medium</span>'
+      + '</div></a>';
+
+    // Rest as cards
+    var cardsHTML = rest.map(function(item) {
+      var img2 = getImg(item);
+      var imgEl = img2 ? '<div class="rss-card-img" style="background-image:url(' + img2 + ')"></div>' : '';
+      return '<a class="rss-card" href="' + item.link + '" target="_blank" rel="noopener">'
+        + imgEl
+        + '<div class="rss-card-body">'
+        + '<div class="cc-meta"><span class="cc-tag">' + inferTag(item) + '</span>'
+        + '<span class="cc-date">' + fmtDate(item.pubDate) + '</span></div>'
+        + '<h3 class="rss-card-title">' + item.title + '</h3>'
+        + '<p class="rss-card-excerpt">' + excerpt(item.content || item.description, 120) + '</p>'
+        + '<span class="cc-more">Leer en Medium</span>'
+        + '</div></a>';
+    }).join('');
+
+    grid.innerHTML = featHTML + '<div class="rss-cards-grid">' + cardsHTML + '</div>';
+  }
+
+  // ── FETCH ──────────────────────────────────────────────────────
+  function fetchFeed(cb) {
+    var xhr = new XMLHttpRequest();
+    xhr.open('GET', FEED, true);
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        try {
+          var data = JSON.parse(xhr.responseText);
+          cb(data.status === 'ok' ? data.items : null);
+        } catch(e) { cb(null); }
+      } else { cb(null); }
+    };
+    xhr.onerror = function() { cb(null); };
+    xhr.send();
+  }
+
+  // ── INIT ───────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('cuaderno-layout') || document.getElementById('cuaderno-rss-grid')) {
+      fetchFeed(function(items) {
+        renderHome(items);
+        renderCuaderno(items);
+      });
+    }
+  });
+})();
 </script>
 </body>
 </html>

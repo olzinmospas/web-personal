@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cuaderno — Antonio Romeo. Serie GE: crónicas personales escritas desde Portugal. Textos de ficción y crónica literaria, a veces en español, a veces en portugués.">
+<title>Cuaderno — Antonio Romeo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+
+  /* ── PAGE HEADER — tono diferente al resto del sitio ── */
+  .cuaderno-header {
+    min-height: 60vh;
+    background: var(--ink);
+    padding: 120px 80px 80px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+  }
+
+  /* Fondo con patrón de líneas de cuaderno */
+  .cuaderno-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      to bottom,
+      transparent,
+      transparent 39px,
+      rgba(139,110,78,0.08) 39px,
+      rgba(139,110,78,0.08) 40px
+    );
+    pointer-events: none;
+  }
+
+  /* Margen vertical rojo de cuaderno */
+  .cuaderno-header::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    left: 110px;
+    width: 1px;
+    background: rgba(124,61,30,0.25);
+    pointer-events: none;
+  }
+
+  .cuaderno-header-inner {
+    position: relative; z-index: 1;
+    max-width: 780px;
+  }
+
+  .cuaderno-eyebrow {
+    font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--earth-light);
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 28px;
+  }
+  .cuaderno-eyebrow::before {
+    content: ''; width: 28px; height: 1px; background: var(--earth-light);
+  }
+
+  .cuaderno-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(64px, 8vw, 110px);
+    font-weight: 900; line-height: 0.9;
+    color: var(--cream); margin-bottom: 28px;
+    letter-spacing: -0.02em;
+  }
+  .cuaderno-title em {
+    font-style: italic; color: var(--earth-light);
+  }
+
+  .cuaderno-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px; font-style: italic;
+    color: rgba(245,239,224,0.5);
+    line-height: 1.65; max-width: 560px;
+    margin-bottom: 40px;
+  }
+
+  .cuaderno-medium-badge {
+    display: inline-flex; align-items: center; gap: 10px;
+    border: 1px solid rgba(139,110,78,0.3);
+    padding: 12px 20px;
+    font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(245,239,224,0.6);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .cuaderno-medium-badge:hover {
+    border-color: var(--earth-light);
+    color: var(--earth-light);
+  }
+  .medium-dot {
+    width: 18px; height: 18px; border-radius: 50%;
+    background: rgba(245,239,224,0.7);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; font-weight: 700; color: var(--ink);
+    flex-shrink: 0;
+  }
+
+  /* ── SERIE GE — bloque destacado ── */
+  .serie-band {
+    background: var(--cream-dark);
+    border-bottom: 1px solid var(--line);
+    padding: 56px 80px;
+    display: flex; align-items: center; gap: 60px;
+  }
+  .serie-label-big {
+    font-family: 'Playfair Display', serif;
+    font-size: 88px; font-weight: 900; line-height: 1;
+    color: var(--ink); opacity: 0.08;
+    flex-shrink: 0; user-select: none;
+    letter-spacing: -0.04em;
+  }
+  .serie-info {
+    flex: 1;
+  }
+  .serie-tag {
+    font-size: 9px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--earth); display: flex; align-items: center; gap: 12px;
+    margin-bottom: 12px;
+  }
+  .serie-tag::before { content: ''; width: 24px; height: 1px; background: var(--earth); }
+  .serie-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: var(--ink);
+    margin-bottom: 12px; line-height: 1.15;
+  }
+  .serie-title em { font-style: italic; color: var(--earth); }
+  .serie-desc {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px; line-height: 1.75;
+    color: var(--text-body); max-width: 580px;
+  }
+  .serie-count {
+    flex-shrink: 0; text-align: center;
+    border-left: 1px solid var(--line); padding-left: 48px;
+  }
+  .serie-count-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 56px; font-weight: 900;
+    color: var(--ink); line-height: 1;
+    margin-bottom: 6px;
+  }
+  .serie-count-lbl {
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--earth);
+  }
+
+  /* ── GRID PRINCIPAL ── */
+  .cuaderno-body {
+    max-width: 1240px; margin: 0 auto;
+    padding: 72px 80px 96px;
+  }
+
+  /* Featured post — el último (pinned) */
+  .post-featured {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 0;
+    background: var(--ink);
+    margin-bottom: 3px;
+    text-decoration: none; color: inherit;
+    transition: opacity 0.2s;
+    min-height: 360px;
+  }
+  .post-featured:hover { opacity: 0.93; }
+
+  .pf-content {
+    padding: 52px 56px;
+    display: flex; flex-direction: column; justify-content: space-between;
+  }
+  .pf-top {}
+  .pf-meta {
+    display: flex; gap: 12px; align-items: center;
+    margin-bottom: 24px; flex-wrap: wrap;
+  }
+  .pf-tag {
+    font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--cream); background: var(--earth);
+    padding: 4px 10px; font-weight: 500;
+  }
+  .pf-tag-pinned {
+    font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--earth-light);
+    border: 1px solid rgba(184,151,106,0.35);
+    padding: 4px 10px;
+  }
+  .pf-date {
+    font-family: 'EB Garamond', serif; font-size: 13px;
+    font-style: italic; color: rgba(245,239,224,0.45);
+    margin-left: auto;
+  }
+  .pf-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(28px, 3vw, 38px); font-weight: 900;
+    color: var(--cream); line-height: 1.1; margin-bottom: 16px;
+  }
+  .pf-excerpt {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px; font-style: italic; line-height: 1.7;
+    color: rgba(245,239,224,0.55); margin-bottom: 36px;
+    max-width: 480px;
+  }
+  .pf-readmore {
+    font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--earth-light);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .pf-readmore::after { content: '→'; font-size: 14px; }
+
+  .pf-image {
+    background: var(--ink-soft);
+    overflow: hidden; position: relative;
+  }
+  .pf-image img {
+    width: 100%; height: 100%;
+    object-fit: cover; display: block;
+    opacity: 0.6; filter: sepia(20%) contrast(1.1);
+    transition: transform 0.5s, opacity 0.3s;
+  }
+  .post-featured:hover .pf-image img {
+    transform: scale(1.03); opacity: 0.7;
+  }
+  .pf-image-placeholder {
+    width: 100%; height: 100%;
+    background: linear-gradient(135deg, #1A1610 0%, #0A0806 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 72px; font-weight: 900;
+    color: rgba(184,151,106,0.12); letter-spacing: -0.03em;
+  }
+
+  /* Grid posts secundarios */
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3px;
+    background: var(--line);
+    margin-bottom: 3px;
+  }
+
+  .post-card {
+    background: var(--paper);
+    padding: 32px 28px;
+    text-decoration: none; color: inherit; display: block;
+    border-bottom: 2px solid transparent;
+    transition: background 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .post-card:hover {
+    background: var(--cream-dark);
+    border-bottom-color: var(--earth);
+  }
+
+  .pc-series-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 64px; font-weight: 900;
+    color: var(--ink); opacity: 0.05;
+    position: absolute; top: 16px; right: 20px;
+    line-height: 1; user-select: none; pointer-events: none;
+  }
+
+  .pc-meta {
+    display: flex; gap: 10px; align-items: center;
+    margin-bottom: 16px; flex-wrap: wrap;
+  }
+  .pc-tag {
+    font-size: 8.5px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--cream); background: var(--earth);
+    padding: 3px 9px; font-weight: 500;
+  }
+  .pc-lang {
+    font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--earth); border: 1px solid var(--line);
+    padding: 3px 9px;
+  }
+  .pc-date {
+    font-family: 'EB Garamond', serif; font-size: 12px;
+    font-style: italic; color: var(--earth); margin-left: auto;
+  }
+  .pc-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px; font-weight: 700; line-height: 1.25;
+    margin-bottom: 10px; color: var(--ink);
+  }
+  .pc-excerpt {
+    font-family: 'EB Garamond', serif;
+    font-size: 15.5px; line-height: 1.65;
+    color: var(--text-body); margin-bottom: 20px;
+    font-style: italic;
+  }
+  .pc-more {
+    font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--earth); display: flex; align-items: center; gap: 8px;
+  }
+  .pc-more::after { content: '→'; }
+  .pc-medium-icon {
+    font-size: 9px; color: rgba(60,48,37,0.35);
+    margin-left: auto;
+  }
+
+  /* Textos en portugués — bloque diferenciado */
+  .pt-section {
+    background: var(--cream);
+    border: 1px solid var(--line);
+    padding: 48px 52px;
+    margin-top: 3px;
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 52px;
+    align-items: center;
+  }
+  .pt-label-side {
+    text-align: center; border-right: 1px solid var(--line); padding-right: 52px;
+  }
+  .pt-flag {
+    font-size: 48px; margin-bottom: 12px;
+  }
+  .pt-lang-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700; color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .pt-lang-sub {
+    font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--earth);
+  }
+  .pt-posts-list {}
+  .pt-post-row {
+    display: flex; align-items: baseline;
+    gap: 16px; padding: 14px 0;
+    border-bottom: 1px solid var(--line);
+    text-decoration: none; color: inherit;
+    transition: color 0.2s;
+  }
+  .pt-post-row:last-child { border-bottom: none; }
+  .pt-post-row:hover .pt-post-title { color: var(--earth); }
+  .pt-post-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 12px; color: var(--earth); opacity: 0.6;
+    flex-shrink: 0; width: 20px; text-align: right;
+  }
+  .pt-post-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 17px; font-weight: 700; color: var(--ink);
+    transition: color 0.2s; flex: 1;
+  }
+  .pt-post-date {
+    font-family: 'EB Garamond', serif; font-size: 13px;
+    font-style: italic; color: var(--earth); flex-shrink: 0;
+  }
+  .pt-post-arrow {
+    font-size: 13px; color: var(--earth); opacity: 0.5; flex-shrink: 0;
+  }
+
+  /* Nota sobre Medium */
+  .medium-note {
+    margin-top: 56px; padding: 28px 36px;
+    background: var(--cream-dark); border-left: 3px solid var(--earth);
+    display: flex; align-items: center; gap: 24px;
+  }
+  .medium-note-icon {
+    width: 36px; height: 36px; background: var(--ink); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 14px; font-weight: 700; color: var(--cream); flex-shrink: 0;
+  }
+  .medium-note-text {
+    font-family: 'EB Garamond', serif; font-size: 17px;
+    line-height: 1.65; color: var(--text-body); font-style: italic;
+    flex: 1;
+  }
+  .medium-note-text strong { font-style: normal; font-weight: 500; color: var(--ink); }
+  .medium-note-link {
+    flex-shrink: 0; font-size: 10px; letter-spacing: 0.16em;
+    text-transform: uppercase; color: var(--earth);
+    text-decoration: none; display: flex; align-items: center; gap: 8px;
+    transition: color 0.2s;
+  }
+  .medium-note-link:hover { color: var(--ink); }
+  .medium-note-link::after { content: '↗'; font-size: 14px; }
+
+  /* ── NEWSLETTER ── */
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 1100px) {
+    .post-featured { grid-template-columns: 1fr; min-height: auto; }
+    .pf-image { display: none; }
+    .posts-grid { grid-template-columns: repeat(2, 1fr); }
+    .serie-band { flex-direction: column; gap: 24px; }
+    .serie-label-big { display: none; }
+    .serie-count { border-left: none; border-top: 1px solid var(--line); padding: 24px 0 0; width: 100%; }
+  }
+  @media (max-width: 768px) {
+    .cuaderno-header { padding: 100px 32px 60px; }
+    .cuaderno-header::after { left: 32px; }
+    .serie-band { padding: 40px 32px; }
+    .cuaderno-body { padding: 48px 32px 72px; }
+    .posts-grid { grid-template-columns: 1fr; }
+    .pt-section { grid-template-columns: 1fr; gap: 32px; }
+    .pt-label-side { border-right: none; border-bottom: 1px solid var(--line); padding-right: 0; padding-bottom: 24px; display: flex; align-items: center; gap: 16px; text-align: left; }
+    .medium-note { flex-direction: column; align-items: flex-start; gap: 16px; }
+    .pf-content { padding: 36px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">Antonio Romeo</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#sobre-el-autor">El Autor</a></li>
+    <li><a href="../index.html#justo-bagueste">Nuevo Libro</a></li>
+    <li><a href="../hemeroteca/index.html">Hemeroteca</a></li>
+    <li><a href="../obra/index.html">Obra</a></li>
+    <li><a href="index.html" style="color:var(--earth)">Cuaderno</a></li>
+    <li><a href="../index.html#newsletter" class="nav-cta">Próximamente</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="cuaderno-header">
+  <div class="cuaderno-header-inner">
+    <p class="cuaderno-eyebrow">Escritura contemporánea · Desde Portugal</p>
+    <h1 class="cuaderno-title">Cua<em>derno.</em></h1>
+    <p class="cuaderno-desc">
+      Crónica, ficción, a veces en español, a veces en portugués.
+      Textos escritos desde Lisboa sobre lo cotidiano, lo extraño
+      y lo que queda cuando la música se para.
+    </p>
+    <a href="https://medium.com/@olzinmospas" target="_blank" rel="noopener"
+       class="cuaderno-medium-badge">
+      <span class="medium-dot">M</span>
+      Seguir en Medium
+    </a>
+  </div>
+</header>
+
+<!-- BANDA SERIE GE -->
+<div class="serie-band">
+  <div class="serie-label-big">GE</div>
+  <div class="serie-info">
+    <p class="serie-tag">Serie en curso</p>
+    <h2 class="serie-title">Geografía <em>Extranjera</em></h2>
+    <p class="serie-desc">
+      Una serie de crónicas personales escritas desde Portugal.
+      Episodios breves sobre la vida cotidiana del exilio voluntario:
+      peluqueros, restaurantes, colas, vecinos, barrios.
+      Lo mundano como material literario.
+    </p>
+  </div>
+  <div class="serie-count">
+    <div class="serie-count-num">7</div>
+    <div class="serie-count-lbl">Entregas publicadas</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="cuaderno-body">
+
+  <!-- POST DESTACADO — pinned, el más reciente -->
+  <a class="post-featured reveal"
+     href="https://medium.com/@olzinmospas/fritura-r%C3%A1pida-japonesa-69a63db029ec"
+     target="_blank" rel="noopener">
+    <div class="pf-content">
+      <div class="pf-top">
+        <div class="pf-meta">
+          <span class="pf-tag">GE · Serie</span>
+          <span class="pf-tag-pinned">Destacado</span>
+          <span class="pf-date">14 octubre, 2025</span>
+        </div>
+        <h2 class="pf-title">Fritura rápida japonesa</h2>
+        <p class="pf-excerpt">
+          <!-- EXTRACTO: Copia aquí 2-3 líneas del comienzo del texto desde Medium -->
+          El otro día me encontré a un ninja en mitad de la calle.
+          Según me dijo después, no puedo decir que "lo encontré"…
+        </p>
+      </div>
+      <span class="pf-readmore">Leer en Medium</span>
+    </div>
+    <div class="pf-image">
+      <div class="pf-image-placeholder">GE</div>
+    </div>
+  </a>
+
+  <!-- GRID SECUNDARIO — GE2 a GE6 -->
+  <div class="posts-grid">
+
+    <a class="post-card reveal"
+       href="https://medium.com/@olzinmospas/ge7-rapaz-material-bfa7b5f361c2"
+       target="_blank" rel="noopener">
+      <div class="pc-series-num">7</div>
+      <div class="pc-meta">
+        <span class="pc-tag">GE7</span>
+        <span class="pc-date">5 dic, 2025</span>
+        <span class="pc-medium-icon">M</span>
+      </div>
+      <h3 class="pc-title">Rapaz material</h3>
+      <p class="pc-excerpt">
+        <!-- EXTRACTO: 2-3 líneas del texto -->
+        Una cuestión que descoloca mucho es cuando tu peluquero está de vacaciones,
+        o simplemente tiene el negocio cerrado…
+      </p>
+      <span class="pc-more">Leer en Medium</span>
+    </a>
+
+    <a class="post-card reveal"
+       href="https://medium.com/@olzinmospas/ge6-estimado-se%C3%B1or-inquilino-6dc4c1d53d1d"
+       target="_blank" rel="noopener">
+      <div class="pc-series-num">6</div>
+      <div class="pc-meta">
+        <span class="pc-tag">GE6</span>
+        <span class="pc-date">21 nov, 2025</span>
+        <span class="pc-medium-icon">M</span>
+      </div>
+      <h3 class="pc-title">Estimado señor inquilino</h3>
+      <p class="pc-excerpt">
+        <!-- EXTRACTO: 2-3 líneas del texto -->
+        En Portugal la gente tiene asimilado que va a esperar.
+        Es parte del espíritu nacional, esperas para pedir un café,
+        esperas para ser atendido…
+      </p>
+      <span class="pc-more">Leer en Medium</span>
+    </a>
+
+    <a class="post-card reveal"
+       href="https://medium.com/@olzinmospas/ge5-la-plaza-de-la-libertad-1b01c00684c2"
+       target="_blank" rel="noopener">
+      <div class="pc-series-num">5</div>
+      <div class="pc-meta">
+        <span class="pc-tag">GE5</span>
+        <span class="pc-date">14 nov, 2025</span>
+        <span class="pc-medium-icon">M</span>
+      </div>
+      <h3 class="pc-title">La plaza de la libertad</h3>
+      <p class="pc-excerpt">
+        <!-- EXTRACTO: 2-3 líneas del texto -->
+        Por motivos que no vienen al cuento, la semana pasada
+        pasé unos días en Madrid. Como ya llevo tiempo fuera,
+        volver tiene un efecto extraño…
+      </p>
+      <span class="pc-more">Leer en Medium</span>
+    </a>
+
+    <a class="post-card reveal"
+       href="https://medium.com/@olzinmospas/ge4-elijo-mis-propias-cicatrices-57896d29a89f"
+       target="_blank" rel="noopener">
+      <div class="pc-series-num">4</div>
+      <div class="pc-meta">
+        <span class="pc-tag">GE4</span>
+        <span class="pc-date">7 nov, 2025</span>
+        <span class="pc-medium-icon">M</span>
+      </div>
+      <h3 class="pc-title">Elijo mis propias cicatrices</h3>
+      <p class="pc-excerpt">
+        <!-- EXTRACTO: 2-3 líneas del texto -->
+        Un hombre muchas veces compra ropa por necesidad,
+        es decir, solo compra en el momento que no hay otra opción:
+        se han terminado los recursos…
+      </p>
+      <span class="pc-more">Leer en Medium</span>
+    </a>
+
+    <a class="post-card reveal"
+       href="https://medium.com/@olzinmospas/ge3-trabajos-de-alto-perfil-d84c3cc9e6af"
+       target="_blank" rel="noopener">
+      <div class="pc-series-num">3</div>
+      <div class="pc-meta">
+        <span class="pc-tag">GE3</span>
+        <span class="pc-date">31 oct, 2025</span>
+        <span class="pc-medium-icon">M</span>
+      </div>
+      <h3 class="pc-title">Trabajos de alto perfil</h3>
+      <p class="pc-excerpt">
+        <!-- EXTRACTO: 2-3 líneas del texto -->
+        El fin de semana pasado caminé mucho. Consecuencia directa
+        de ello es que el lunes no me tenía en pie. No había forma
+        humana de evitar un encuentro con el asfalto…
+      </p>
+      <span class="pc-more">Leer en Medium</span>
+    </a>
+
+    <a class="post-card reveal"
+       href="https://medium.com/@olzinmospas/zombies-y-fentanilo-0e07be28fdf3"
+       target="_blank" rel="noopener">
+      <div class="pc-series-num">2</div>
+      <div class="pc-meta">
+        <span class="pc-tag">GE2</span>
+        <span class="pc-date">21 oct, 2025</span>
+        <span class="pc-medium-icon">M</span>
+      </div>
+      <h3 class="pc-title">Zombies y fentanilo</h3>
+      <p class="pc-excerpt">
+        <!-- EXTRACTO: 2-3 líneas del texto -->
+        La semana pasada fuimos a cenar fuera de casa. Era sábado
+        y estábamos de celebración. Las personas deberían celebrar más.
+        Reservé en un sitio que…
+      </p>
+      <span class="pc-more">Leer en Medium</span>
+    </a>
+
+  </div><!-- /posts-grid -->
+
+  <!-- TEXTOS EN PORTUGUÉS -->
+  <div class="pt-section reveal">
+    <div class="pt-label-side">
+      <div class="pt-flag">🇵🇹</div>
+      <div>
+        <p class="pt-lang-title">Em português</p>
+        <p class="pt-lang-sub">Textos em PT</p>
+      </div>
+    </div>
+    <div class="pt-posts-list">
+      <a class="pt-post-row"
+         href="https://medium.com/@olzinmospas/falemos-de-saudade-d37be087e620"
+         target="_blank" rel="noopener">
+        <span class="pt-post-num">1</span>
+        <span class="pt-post-title">Falemos de saudade</span>
+        <span class="pt-post-date">23 jan, 2025</span>
+        <span class="pt-post-arrow">↗</span>
+      </a>
+      <a class="pt-post-row"
+         href="https://medium.com/@olzinmospas/bip-bip-bip-a-sinfonia-dos-apitos-3a8943486656"
+         target="_blank" rel="noopener">
+        <span class="pt-post-num">2</span>
+        <span class="pt-post-title">Bip, Bip, Bip! A Sinfonia dos Apitos</span>
+        <span class="pt-post-date">15 jan, 2025</span>
+        <span class="pt-post-arrow">↗</span>
+      </a>
+      <a class="pt-post-row"
+         href="https://medium.com/@olzinmospas/godmaster2027-foi-atualizado-9c213d7969ad"
+         target="_blank" rel="noopener">
+        <span class="pt-post-num">3</span>
+        <span class="pt-post-title">GodMaster2027 foi atualizado</span>
+        <span class="pt-post-date">6 jan, 2025</span>
+        <span class="pt-post-arrow">↗</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- NOTA MEDIUM -->
+  <div class="medium-note reveal">
+    <div class="medium-note-icon">M</div>
+    <p class="medium-note-text">
+      El Cuaderno se publica en <strong>Medium</strong> de forma irregular,
+      cuando hay algo que contar. Todos los textos enlazan directamente
+      a la plataforma. Para no perderte ninguno, sigue el perfil.
+    </p>
+    <a href="https://medium.com/@olzinmospas"
+       target="_blank" rel="noopener" class="medium-note-link">
+      Seguir en Medium
+    </a>
+  </div>
+
+</div><!-- /cuaderno-body -->
+
+<!-- NEWSLETTER -->
+<section class="newsletter-band" id="newsletter">
+  <h2 class="nl-title">Sé el primero en saberlo.</h2>
+  <p class="nl-subtitle">
+    Nuevas entregas del Cuaderno, fecha del libro de Justo Bagüeste
+    y noticias del autor.
+  </p>
+  <form class="nl-form">
+    <input type="email" class="nl-input" placeholder="tu@email.com">
+    <button type="submit" class="nl-btn">Apuntarme</button>
+  </form>
+  <p class="nl-note">Sin spam. Solo lo que importa, cuando importa.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo">Antonio Romeo</div>
+  <nav class="footer-nav">
+    <a href="../index.html#sobre-el-autor">El autor</a>
+    <a href="../hemeroteca/index.html">Hemeroteca</a>
+    <a href="index.html">Cuaderno</a>
+    <a href="../obra/index.html">Obra</a>
+    <a href="../index.html#newsletter">Contacto</a>
+  </nav>
+  <p class="footer-copy">© 2025 Antonio Romeo Fernández</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+<script>
+  // Nav shadow
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.style.boxShadow = window.scrollY > 40
+      ? '0 4px 30px rgba(20,18,16,0.08)' : 'none';
+  }, {passive: true});
+</script>
+</body>
+</html>

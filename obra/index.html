@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Obra completa de Antonio Romeo — Montaña, Las luces de un avión, Bajo el cielo rosa e Impulso. Psicodelia. Distorsión.">
+<title>Obra Completa — Antonio Romeo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .page-header { background: var(--cream-dark); padding: 120px 80px 72px; border-bottom: 1px solid var(--line); }
+  .obra-full-grid { padding: 80px; max-width: 1240px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, 1fr); gap: 64px 80px; }
+  .obra-full-item { display: grid; grid-template-columns: 200px 1fr; gap: 40px; align-items: start; }
+  .obra-full-cover { aspect-ratio: 2/3; box-shadow: 0 12px 40px rgba(20,18,16,0.2); overflow: hidden; }
+  .obra-full-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s; }
+  .obra-full-item:hover .obra-full-cover img { transform: scale(1.03); }
+  .obra-full-cover-custom { width: 100%; height: 100%; display: flex; flex-direction: column; padding: 28px 22px; }
+  .ofcc-montana { background: linear-gradient(160deg, #D4CBBA 0%, #BFB59E 100%); }
+  .ofcc-cielo { background: linear-gradient(160deg, #C4845A 0%, #8B3A1A 100%); }
+  .ofcc-justo { background: linear-gradient(160deg, #2A1F14 0%, #0D0A07 100%); }
+  .ofcc-label { font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(20,18,16,0.5); }
+  .ofcc-justo .ofcc-label { color: var(--earth-light); opacity: 0.8; }
+  .ofcc-cielo .ofcc-label { color: rgba(245,239,224,0.5); }
+  .ofcc-bottom { margin-top: auto; }
+  .ofcc-title { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 900; line-height: 1.1; margin-bottom: 12px; }
+  .ofcc-montana .ofcc-title { color: var(--ink); }
+  .ofcc-cielo .ofcc-title, .ofcc-justo .ofcc-title { color: var(--cream); }
+  .ofcc-justo .ofcc-title em { font-style: italic; color: var(--earth-light); display: block; font-size: 17px; }
+  .ofcc-author { font-size: 8.5px; letter-spacing: 0.14em; text-transform: uppercase; padding-top: 10px; border-top: 1px solid rgba(20,18,16,0.2); }
+  .ofcc-montana .ofcc-author { color: rgba(20,18,16,0.55); }
+  .ofcc-cielo .ofcc-author, .ofcc-justo .ofcc-author { color: rgba(245,239,224,0.5); border-color: rgba(245,239,224,0.2); }
+
+  .obra-full-info { padding-top: 4px; }
+  .obra-full-type { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--earth); margin-bottom: 8px; }
+  .obra-full-title { font-family: 'Playfair Display', serif; font-size: 26px; font-weight: 700; margin-bottom: 16px; color: var(--ink); line-height: 1.1; }
+  .obra-full-sinopsis { font-family: 'EB Garamond', serif; font-size: 17px; line-height: 1.78; color: var(--text-body); margin-bottom: 28px; }
+  .obra-full-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+  .btn-obra-amazon { background: var(--ink); color: var(--cream); padding: 12px 24px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; font-weight: 500; display: inline-flex; align-items: center; gap: 8px; transition: background 0.2s; }
+  .btn-obra-amazon:hover { background: var(--rust); }
+  .btn-obra-coming { background: rgba(139,110,78,0.15); color: rgba(60,48,37,0.5); padding: 12px 24px; font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500; border: 1px solid var(--line); cursor: default; }
+
+  .obra-divider { border: none; border-top: 1px solid var(--line); margin: 0 80px; }
+
+  @media (max-width: 1024px) {
+    .obra-full-grid { padding: 52px 40px; grid-template-columns: 1fr; gap: 52px; }
+    .page-header { padding: 100px 40px 52px; }
+    .obra-divider { margin: 0 40px; }
+  }
+  @media (max-width: 600px) {
+    .obra-full-item { grid-template-columns: 140px 1fr; gap: 24px; }
+    .obra-full-grid { padding: 40px 24px; }
+    .page-header { padding: 90px 24px 44px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">Antonio Romeo</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#sobre-el-autor">El Autor</a></li>
+    <li><a href="../index.html#justo-bagueste">Nuevo Libro</a></li>
+    <li><a href="../hemeroteca/index.html">Hemeroteca</a></li>
+    <li><a href="../cuaderno/index.html">Cuaderno</a></li>
+    <li><a href="index.html" style="color:var(--earth)">Obra</a></li>
+    <li><a href="../index.html#newsletter" class="nav-cta">Próximamente</a></li>
+  </ul>
+</nav>
+
+<header class="page-header">
+  <p class="section-eyebrow">Catálogo literario</p>
+  <h1 class="section-title" style="font-size:clamp(48px,6vw,80px); margin-bottom:12px">Obra <em>completa.</em></h1>
+  <p style="font-family:'EB Garamond',serif; font-size:19px; font-style:italic; color:var(--earth); max-width:520px">
+    Cuatro libros. Tres novelas, una colección de relatos y una biografía en camino.
+  </p>
+</header>
+
+<div class="obra-full-grid">
+
+  <!-- Nuevo libro — destacado -->
+  <div class="obra-full-item reveal" style="grid-column: 1 / -1; border-bottom: 1px solid var(--line); padding-bottom: 64px; margin-bottom: 0;">
+    <div class="obra-full-cover">
+      <div class="obra-full-cover-custom ofcc-justo">
+        <div class="ofcc-label">Biografía · Próxima publicación</div>
+        <div class="ofcc-bottom">
+          <p class="ofcc-title">Impulso.<br><em>Psicodelia.</em><br>Distorsión.</p>
+          <p class="ofcc-author">Antonio Romeo Fernández</p>
+        </div>
+      </div>
+    </div>
+    <div class="obra-full-info">
+      <p class="obra-full-type">Biografía · Próxima publicación 2025</p>
+      <h2 class="obra-full-title">Impulso. Psicodelia. Distorsión.<br><span style="font-weight:400; font-size:0.75em; color:var(--earth)">Vida y Obra de Justo Bagüeste</span></h2>
+      <p class="obra-full-sinopsis">
+        Nacido en Trasmoz en 1957, Justo Bagüeste es una de las figuras más inclasificables
+        de la vanguardia española. Músico de la Movida, saxofonista errante, cofundador de
+        Clónicos y Rey Lui, cofundador junto al autor de Astillero Monegros.
+        Esta es la historia que nadie se había atrevido a contar, narrada desde adentro,
+        después de catorce años de amistad y centenares de horas de conversación.
+      </p>
+      <div class="obra-full-cta">
+        <span class="btn-obra-coming">Próximamente</span>
+        <a href="../index.html#newsletter" class="btn-obra-amazon">Avísame cuando salga</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Montaña -->
+  <div class="obra-full-item reveal">
+    <div class="obra-full-cover">
+      <div class="obra-full-cover-custom ofcc-montana">
+        <div class="ofcc-label">Narrativa</div>
+        <div class="ofcc-bottom">
+          <p class="ofcc-title">MONTAÑA</p>
+          <p class="ofcc-author">Antonio Romeo</p>
+        </div>
+      </div>
+    </div>
+    <div class="obra-full-info">
+      <p class="obra-full-type">Narrativa</p>
+      <h2 class="obra-full-title">Montaña</h2>
+      <p class="obra-full-sinopsis">
+        Pedro es un joven estancado que logra aprobar unas oposiciones. Su nuevo destino es Churbe,
+        un remoto pueblo partido en dos por un cambio de fronteras. Solo quedan dos habitantes: Aarón y Montse.
+        Lo que le vendieron como un trabajo idílico pronto se derrumbará en una espiral de secretos
+        y aislamiento institucional.
+      </p>
+      <div class="obra-full-cta">
+        <a href="https://www.amazon.es/Monta%C3%B1a-historia-frontera-Antonio-Romeo/dp/B0CW1R6YLY" target="_blank" rel="noopener" class="btn-obra-amazon">Ver en Amazon ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Las luces de un avión -->
+  <div class="obra-full-item reveal">
+    <div class="obra-full-cover">
+      <img src="../assets/img/luces-avion.png" alt="Las luces de un avión">
+    </div>
+    <div class="obra-full-info">
+      <p class="obra-full-type">Relatos</p>
+      <h2 class="obra-full-title">Las luces de un avión</h2>
+      <p class="obra-full-sinopsis">
+        Colección de relatos que explora la distancia, el tránsito y las vidas que transcurren
+        mientras algo se aleja o se acerca en el horizonte. Una prosa de destellos, precisa y luminosa,
+        que recoge la madurez del autor en el género breve.
+      </p>
+      <div class="obra-full-cta">
+        <a href="https://www.amazon.es/Las-luces-avi%C3%B3n-Antonio-Romeo/dp/B0D6V2CZTH" target="_blank" rel="noopener" class="btn-obra-amazon">Ver en Amazon ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bajo el cielo rosa -->
+  <div class="obra-full-item reveal" style="grid-column: 1 / -1; max-width: 700px;">
+    <div class="obra-full-cover">
+      <div class="obra-full-cover-custom ofcc-cielo">
+        <div class="ofcc-label">Narrativa</div>
+        <div class="ofcc-bottom">
+          <p class="ofcc-title" style="color:var(--cream)">BAJO EL<br>CIELO ROSA</p>
+          <p class="ofcc-author">Antonio Romeo</p>
+        </div>
+      </div>
+    </div>
+    <div class="obra-full-info">
+      <p class="obra-full-type">Narrativa</p>
+      <h2 class="obra-full-title">Bajo el cielo rosa</h2>
+      <p class="obra-full-sinopsis">
+        Desangrándose en mitad de un desierto infinito, Samuel se enfrenta a las consecuencias
+        de su mayor adicción: borrar sus propios recuerdos. En la ciudad de Épsilon, someterse
+        a continuas descargas de memoria es la única táctica para no perder la cabeza.
+        O para perderla por completo. Una distopía brutal y aséptica sobre la identidad
+        y lo que queda cuando todo se elimina.
+      </p>
+      <div class="obra-full-cta">
+        <a href="https://www.amazon.es/Bajo-cielo-rosa-Antonio-Romeo/dp/B0DRZ2X7X4" target="_blank" rel="noopener" class="btn-obra-amazon">Ver en Amazon ↗</a>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<section class="newsletter-band" id="newsletter">
+  <h2 class="nl-title">Sé el primero en saberlo.</h2>
+  <p class="nl-subtitle">Fecha de publicación de Justo Bagüeste, nuevas crónicas y noticias del autor.</p>
+  <form class="nl-form">
+    <input type="email" class="nl-input" placeholder="tu@email.com">
+    <button type="submit" class="nl-btn">Apuntarme</button>
+  </form>
+  <p class="nl-note">Sin spam. Solo lo que importa, cuando importa.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Antonio Romeo</div>
+  <nav class="footer-nav">
+    <a href="../index.html#sobre-el-autor">El autor</a>
+    <a href="../hemeroteca/index.html">Hemeroteca</a>
+    <a href="index.html">Obra</a>
+    <a href="../index.html#newsletter">Contacto</a>
+  </nav>
+  <p class="footer-copy">© 2025 Antonio Romeo Fernández</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Hemeroteca de Antonio Romeo — Más de 60 crónicas musicales publicadas en Rockdelux, Diario del Altoaragón y El Estado Mental.">
+<title>Hemeroteca — Antonio Romeo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+<style>
+  .page-header {
+    background: var(--ink);
+    padding: 120px 80px 72px;
+    position: relative; overflow: hidden;
+  }
+  .page-header-bg {
+    position: absolute; inset: 0;
+    font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900;
+    color: rgba(255,255,255,0.025); display: flex; align-items: center;
+    padding-left: 60px; user-select: none; letter-spacing: -0.05em;
+  }
+  .page-header-inner { position: relative; z-index: 1; max-width: 800px; }
+  .page-header .section-eyebrow { color: var(--earth-light); }
+  .page-header .section-eyebrow::before { background: var(--earth-light); }
+  .page-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(48px, 6vw, 80px); font-weight: 900;
+    color: var(--cream); line-height: 1; margin-bottom: 16px;
+  }
+  .page-title em { font-style: italic; color: var(--earth-light); }
+  .page-desc {
+    font-family: 'EB Garamond', serif; font-size: 19px;
+    color: rgba(245,239,224,0.6); font-style: italic; max-width: 560px;
+  }
+
+  /* Filter bar */
+  .filter-bar {
+    background: var(--cream); border-bottom: 1px solid var(--line);
+    padding: 24px 80px;
+    position: sticky; top: 61px; z-index: 200;
+    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
+  }
+  .filter-label {
+    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--earth); margin-right: 8px; flex-shrink: 0;
+  }
+  .filter-btn {
+    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 8px 18px; border: 1px solid var(--line);
+    background: transparent; color: var(--text-body);
+    cursor: pointer; font-family: 'DM Sans', sans-serif;
+    transition: all 0.2s; font-weight: 400;
+  }
+  .filter-btn:hover { border-color: var(--earth); color: var(--earth); }
+  .filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
+  .results-count {
+    margin-left: auto; font-size: 11px; color: var(--earth);
+    font-family: 'EB Garamond', serif; font-style: italic;
+  }
+
+  /* Grid */
+  .hemeroteca-body { padding: 60px 80px 96px; max-width: 1280px; margin: 0 auto; }
+  .cronicas-full-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 2px; background: var(--line);
+  }
+  .cronica-item {
+    background: var(--paper); padding: 32px 30px;
+    text-decoration: none; color: inherit; display: block;
+    border-bottom: 2px solid transparent;
+    transition: background 0.2s, border-color 0.2s, opacity 0.3s, transform 0.3s;
+  }
+  .cronica-item:hover { background: var(--cream-dark); border-bottom-color: var(--earth); }
+  .ci-top { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
+  .ci-tag { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); background: var(--earth); padding: 4px 10px; font-weight: 500; white-space: nowrap; }
+  .ci-date { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--earth); }
+  .ci-medio { margin-left: auto; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(60,48,37,0.4); }
+  .ci-title { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.28; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
+  .ci-excerpt { font-family: 'EB Garamond', serif; font-size: 15.5px; line-height: 1.65; color: var(--text-body); margin-bottom: 18px; }
+  .ci-more { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--earth); display: flex; align-items: center; gap: 8px; }
+  .ci-more::after { content: '→'; }
+
+  @media (max-width: 1024px) {
+    .page-header { padding: 100px 40px 52px; }
+    .filter-bar { padding: 20px 40px; }
+    .hemeroteca-body { padding: 40px 40px 72px; }
+    .cronicas-full-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 600px) {
+    .cronicas-full-grid { grid-template-columns: 1fr; }
+    .filter-bar { padding: 16px 24px; }
+    .page-header { padding: 90px 24px 44px; }
+    .hemeroteca-body { padding: 32px 24px 60px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">Antonio Romeo</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#sobre-el-autor">El Autor</a></li>
+    <li><a href="../index.html#justo-bagueste">Nuevo Libro</a></li>
+    <li><a href="index.html" style="color:var(--earth)">Hemeroteca</a></li>
+    <li><a href="../cuaderno/index.html">Cuaderno</a></li>
+    <li><a href="../obra/index.html">Obra</a></li>
+    <li><a href="../index.html#newsletter" class="nav-cta">Próximamente</a></li>
+  </ul>
+</nav>
+
+<!-- HEADER -->
+<header class="page-header">
+  <div class="page-header-bg">PRENSA</div>
+  <div class="page-header-inner">
+    <p class="section-eyebrow">Archivo periodístico</p>
+    <h1 class="page-title">Heme<em>roteca.</em></h1>
+    <p class="page-desc">
+      Más de 60 crónicas musicales publicadas entre 2010 y 2024
+      en Rockdelux, Diario del Altoaragón y El Estado Mental.
+    </p>
+  </div>
+</header>
+
+<!-- FILTER BAR -->
+<div class="filter-bar">
+  <span class="filter-label">Filtrar por</span>
+  <button class="filter-btn active" data-filter="all">Todas</button>
+  <button class="filter-btn" data-filter="musica-en-vivo">Música en vivo</button>
+  <button class="filter-btn" data-filter="concierto">Concierto</button>
+  <button class="filter-btn" data-filter="resena">Reseña</button>
+  <button class="filter-btn" data-filter="entrevista">Entrevista</button>
+  <button class="filter-btn" data-filter="festival">Festival</button>
+  <span class="results-count">60+ crónicas</span>
+</div>
+
+<!-- GRID DE CRÓNICAS -->
+<div class="hemeroteca-body">
+  <div class="cronicas-full-grid" id="cronicas-grid">
+
+    <a class="cronica-item reveal" data-tematica="musica-en-vivo" href="los-raros-son-los-demas.html">
+      <div class="ci-top"><span class="ci-tag">Música en vivo</span><span class="ci-date">18 mayo, 2013</span><span class="ci-medio">Diario Altoaragón</span></div>
+      <h2 class="ci-title">Los raros son los demás</h2>
+      <p class="ci-excerpt">La poesía quizá es el género artístico que menos dinero aporta a su autor y el que menos difusión genera, pero es el más sencillo de poner en práctica. El Festival Microfest lo entendía perfectamente.</p>
+      <span class="ci-more">Leer crónica</span>
+    </a>
+
+    <a class="cronica-item reveal" data-tematica="concierto" href="agitado-pero-no-mezclado.html">
+      <div class="ci-top"><span class="ci-tag">Concierto</span><span class="ci-date">Verano, 2014</span><span class="ci-medio">Rockdelux</span></div>
+      <h2 class="ci-title">Agitado pero no mezclado</h2>
+      <p class="ci-excerpt">Cuando Carlicos Brown anunció que había cambiado su nombre artístico en honor a Huesca, la calle entera lo entendió como un regalo. Hasta que apareció Joaquín Sabina desde el hostal de enfrente.</p>
+      <span class="ci-more">Leer crónica</span>
+    </a>
+
+    <a class="cronica-item reveal" data-tematica="resena" href="la-voz-que-nadie-versiono.html">
+      <div class="ci-top"><span class="ci-tag">Reseña</span><span class="ci-date">Marzo, 2015</span><span class="ci-medio">El Estado Mental</span></div>
+      <h2 class="ci-title">La voz que nadie se había atrevido a versionar</h2>
+      <p class="ci-excerpt">Con teclado, guitarras, cello y contrabajo, María José Hernández recuperó las canciones menos conocidas de Labordeta. Ninguna cantante se había atrevido hasta entonces.</p>
+      <span class="ci-more">Leer crónica</span>
+    </a>
+
+    <!-- PLACEHOLDER — añade aquí el resto de crónicas con el mismo patrón -->
+    <!-- Ejemplo:
+    <a class="cronica-item" data-tematica="festival" href="nombre-slug.html">
+      <div class="ci-top"><span class="ci-tag">Festival</span><span class="ci-date">Julio, 2016</span><span class="ci-medio">Rockdelux</span></div>
+      <h2 class="ci-title">Título de la crónica</h2>
+      <p class="ci-excerpt">Extracto de 2-3 líneas...</p>
+      <span class="ci-more">Leer crónica</span>
+    </a>
+    -->
+
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-band" id="newsletter">
+  <h2 class="nl-title">Sé el primero en saberlo.</h2>
+  <p class="nl-subtitle">Fecha de publicación de Justo Bagüeste, nuevas crónicas y noticias del autor.</p>
+  <form class="nl-form">
+    <input type="email" class="nl-input" placeholder="tu@email.com">
+    <button type="submit" class="nl-btn">Apuntarme</button>
+  </form>
+  <p class="nl-note">Sin spam. Solo lo que importa, cuando importa.</p>
+</section>
+
+<footer>
+  <div class="footer-logo">Antonio Romeo</div>
+  <nav class="footer-nav">
+    <a href="../index.html#sobre-el-autor">El autor</a>
+    <a href="index.html">Hemeroteca</a>
+    <a href="../obra/index.html">Obra</a>
+    <a href="../index.html#newsletter">Contacto</a>
+  </nav>
+  <p class="footer-copy">© 2025 Antonio Romeo Fernández</p>
+</footer>
+
+<script src="../assets/js/main.js"></script>
+</body>
+</html>

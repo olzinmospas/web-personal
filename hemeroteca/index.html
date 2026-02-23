@@ -3,96 +3,100 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Hemeroteca de Antonio Romeo — Más de 60 crónicas musicales publicadas en Rockdelux, Diario del Altoaragón y El Estado Mental.">
+<meta name="description" content="Hemeroteca de Antonio Romeo — 135 crónicas musicales publicadas entre 2011 y 2015.">
 <title>Hemeroteca — Antonio Romeo</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="../assets/css/style.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-  .page-header {
-    background: var(--ink);
-    padding: 120px 80px 72px;
-    position: relative; overflow: hidden;
-  }
-  .page-header-bg {
-    position: absolute; inset: 0;
-    font-family: 'Playfair Display', serif; font-size: 220px; font-weight: 900;
-    color: rgba(255,255,255,0.025); display: flex; align-items: center;
-    padding-left: 60px; user-select: none; letter-spacing: -0.05em;
-  }
-  .page-header-inner { position: relative; z-index: 1; max-width: 800px; }
-  .page-header .section-eyebrow { color: var(--earth-light); }
-  .page-header .section-eyebrow::before { background: var(--earth-light); }
-  .page-title {
-    font-family: 'Playfair Display', serif;
-    font-size: clamp(48px, 6vw, 80px); font-weight: 900;
-    color: var(--cream); line-height: 1; margin-bottom: 16px;
-  }
-  .page-title em { font-style: italic; color: var(--earth-light); }
-  .page-desc {
-    font-family: 'EB Garamond', serif; font-size: 19px;
-    color: rgba(245,239,224,0.6); font-style: italic; max-width: 560px;
-  }
+:root{--cream:#F5EFE0;--cream-dark:#EAE0CC;--ink:#141210;--earth:#8B6E4E;--earth-light:#B8976A;--rust:#7C3D1E;--paper:#FAF7F0;--text-body:#3D3025;--line:rgba(139,110,78,.22);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;z-index:9999;}
 
-  /* Filter bar */
-  .filter-bar {
-    background: var(--cream); border-bottom: 1px solid var(--line);
-    padding: 24px 80px;
-    position: sticky; top: 61px; z-index: 200;
-    display: flex; gap: 10px; align-items: center; flex-wrap: wrap;
-  }
-  .filter-label {
-    font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase;
-    color: var(--earth); margin-right: 8px; flex-shrink: 0;
-  }
-  .filter-btn {
-    font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase;
-    padding: 8px 18px; border: 1px solid var(--line);
-    background: transparent; color: var(--text-body);
-    cursor: pointer; font-family: 'DM Sans', sans-serif;
-    transition: all 0.2s; font-weight: 400;
-  }
-  .filter-btn:hover { border-color: var(--earth); color: var(--earth); }
-  .filter-btn.active { background: var(--ink); color: var(--cream); border-color: var(--ink); }
-  .results-count {
-    margin-left: auto; font-size: 11px; color: var(--earth);
-    font-family: 'EB Garamond', serif; font-style: italic;
-  }
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;align-items:center;justify-content:space-between;padding:0 52px;height:61px;background:rgba(250,247,240,.98);backdrop-filter:blur(16px);border-bottom:1px solid var(--line);box-shadow:0 2px 12px rgba(20,18,16,.06);}
+.nav-logo{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#0E0C0A;text-decoration:none;}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:#2A2018;text-decoration:none;transition:color .2s;font-weight:400;}
+.nav-links a:hover,.nav-links a.active{color:var(--earth);}
+.nav-cta{background:var(--ink)!important;color:var(--cream)!important;padding:9px 18px;font-size:10px!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.nav-hamburger span{display:block;width:22px;height:2px;background:var(--ink);transition:all .3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-drawer{display:none;position:fixed;inset:61px 0 0 0;background:rgba(250,247,240,.98);backdrop-filter:blur(20px);z-index:490;flex-direction:column;padding:40px 32px;border-top:1px solid var(--line);}
+.nav-drawer.open{display:flex;}
+.nav-drawer li{list-style:none;border-bottom:1px solid var(--line);}
+.nav-drawer li a{display:block;padding:18px 0;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-body);text-decoration:none;}
+.nav-drawer li:last-child{border-bottom:none;padding-top:24px;}
+.nav-drawer li:last-child a{background:var(--ink);color:var(--cream);padding:16px 24px;text-align:center;display:block;}
 
-  /* Grid */
-  .hemeroteca-body { padding: 60px 80px 96px; max-width: 1280px; margin: 0 auto; }
-  .cronicas-full-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 2px; background: var(--line);
-  }
-  .cronica-item {
-    background: var(--paper); padding: 32px 30px;
-    text-decoration: none; color: inherit; display: block;
-    border-bottom: 2px solid transparent;
-    transition: background 0.2s, border-color 0.2s, opacity 0.3s, transform 0.3s;
-  }
-  .cronica-item:hover { background: var(--cream-dark); border-bottom-color: var(--earth); }
-  .ci-top { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; flex-wrap: wrap; }
-  .ci-tag { font-size: 8.5px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--cream); background: var(--earth); padding: 4px 10px; font-weight: 500; white-space: nowrap; }
-  .ci-date { font-family: 'EB Garamond', serif; font-size: 13px; font-style: italic; color: var(--earth); }
-  .ci-medio { margin-left: auto; font-size: 9px; letter-spacing: 0.1em; text-transform: uppercase; color: rgba(60,48,37,0.4); }
-  .ci-title { font-family: 'Playfair Display', serif; font-size: 18px; line-height: 1.28; font-weight: 700; margin-bottom: 10px; color: var(--ink); }
-  .ci-excerpt { font-family: 'EB Garamond', serif; font-size: 15.5px; line-height: 1.65; color: var(--text-body); margin-bottom: 18px; }
-  .ci-more { font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--earth); display: flex; align-items: center; gap: 8px; }
-  .ci-more::after { content: '→'; }
+/* HEADER */
+.hem-header{padding:100px 72px 0;background:var(--paper);}
+.hem-header-inner{border-bottom:1px solid var(--line);padding-bottom:52px;max-width:1180px;margin:0 auto;}
+.hem-eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--earth);display:flex;align-items:center;gap:14px;margin-bottom:20px;}
+.hem-eyebrow::before{content:'';width:28px;height:1px;background:var(--earth);}
+.hem-title{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,80px);font-weight:900;line-height:.95;color:var(--ink);margin-bottom:14px;}
+.hem-title em{font-style:italic;color:var(--earth);}
+.hem-desc{font-family:'EB Garamond',serif;font-size:18px;font-style:italic;color:var(--text-body);opacity:.65;max-width:520px;line-height:1.6;}
+.hem-stats{display:flex;gap:40px;margin-top:32px;flex-wrap:wrap;}
+.hem-stat-num{font-family:'Playfair Display',serif;font-size:28px;font-weight:900;color:var(--ink);line-height:1;}
+.hem-stat-lbl{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);margin-top:4px;}
 
-  @media (max-width: 1024px) {
-    .page-header { padding: 100px 40px 52px; }
-    .filter-bar { padding: 20px 40px; }
-    .hemeroteca-body { padding: 40px 40px 72px; }
-    .cronicas-full-grid { grid-template-columns: repeat(2, 1fr); }
-  }
-  @media (max-width: 600px) {
-    .cronicas-full-grid { grid-template-columns: 1fr; }
-    .filter-bar { padding: 16px 24px; }
-    .page-header { padding: 90px 24px 44px; }
-    .hemeroteca-body { padding: 32px 24px 60px; }
-  }
+/* FILTER BAR */
+.filter-bar{padding:24px 72px;background:var(--cream-dark);border-bottom:1px solid var(--line);position:sticky;top:61px;z-index:400;}
+.filter-bar-inner{max-width:1180px;margin:0 auto;display:flex;gap:8px;align-items:center;flex-wrap:wrap;}
+.filter-label{font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--earth);margin-right:8px;flex-shrink:0;}
+.yr-btn{font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:7px 16px;border:1px solid var(--line);background:var(--paper);color:var(--text-body);cursor:pointer;transition:all .18s;font-family:'DM Sans',sans-serif;}
+.yr-btn:hover{border-color:var(--earth);color:var(--earth);}
+.yr-btn.active{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+.search-wrap{margin-left:auto;position:relative;}
+.h-search{padding:8px 14px 8px 32px;border:1px solid var(--line);background:var(--paper);font-family:'DM Sans',sans-serif;font-size:12px;color:var(--ink);outline:none;width:200px;transition:border-color .2s;}
+.h-search:focus{border-color:var(--earth);}
+.h-search::placeholder{color:rgba(60,48,37,.35);}
+.search-icon{position:absolute;left:10px;top:50%;transform:translateY(-50%);font-size:12px;opacity:.4;pointer-events:none;}
+#results-count{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--earth);opacity:.7;margin-left:12px;flex-shrink:0;}
+
+/* GRID */
+.h-grid-wrap{padding:48px 72px 88px;max-width:1180px;margin:0 auto;}
+.h-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);}
+.h-card{background:var(--paper);padding:24px 26px;display:flex;flex-direction:column;gap:8px;border-bottom:2px solid transparent;transition:background .18s,border-color .2s;cursor:default;}
+.h-card:hover{background:var(--cream-dark);border-bottom-color:var(--earth);}
+.h-card.hidden{display:none;}
+.h-card-top{display:flex;justify-content:space-between;align-items:center;gap:8px;}
+.h-tag{font-size:7.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--cream);background:var(--earth);padding:3px 9px;font-weight:500;white-space:nowrap;}
+.h-date{font-family:'EB Garamond',serif;font-size:12px;font-style:italic;color:var(--earth);opacity:.7;white-space:nowrap;}
+.h-card-title{font-family:'Playfair Display',serif;font-size:16px;font-weight:700;color:var(--ink);line-height:1.25;}
+.h-card-excerpt{font-family:'EB Garamond',serif;font-size:14px;font-style:italic;color:var(--text-body);line-height:1.65;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.h-card-orig{font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--earth);text-decoration:none;display:flex;align-items:center;gap:5px;margin-top:4px;transition:color .2s;align-self:flex-start;}
+.h-card-orig:hover{color:var(--ink);}
+.no-results{grid-column:1/-1;padding:56px 0;text-align:center;font-family:'EB Garamond',serif;font-size:20px;font-style:italic;color:var(--earth);opacity:.6;}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(139,110,78,.1);padding:24px 72px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--cream);text-decoration:none;}
+.footer-nav{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-nav a{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(245,239,224,.3);text-decoration:none;transition:color .2s;}
+.footer-nav a:hover{color:var(--earth-light);}
+.footer-copy{font-size:11px;color:rgba(245,239,224,.18);}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:0 32px;}.nav-links{display:none;}.nav-hamburger{display:flex;}
+  .hem-header,.filter-bar,.h-grid-wrap,footer{padding-left:32px;padding-right:32px;}
+  .h-grid{grid-template-columns:repeat(2,1fr);}
+  .h-search{width:160px;}
+}
+@media(max-width:600px){
+  .hem-header{padding:88px 24px 0;}
+  .filter-bar{padding:16px 24px;top:61px;}
+  .h-grid-wrap{padding:32px 24px 64px;}
+  .h-grid{grid-template-columns:1fr;}
+  .h-search{width:130px;}
+  footer{padding:20px 24px;flex-direction:column;text-align:center;}.footer-nav{justify-content:center;}
+  nav{padding:0 20px;}
+}
 </style>
 </head>
 <body>
@@ -102,91 +106,1278 @@
   <ul class="nav-links">
     <li><a href="../index.html#sobre-el-autor">El Autor</a></li>
     <li><a href="../index.html#justo-bagueste">Nuevo Libro</a></li>
-    <li><a href="index.html" style="color:var(--earth)">Hemeroteca</a></li>
     <li><a href="../cuaderno/index.html">Cuaderno</a></li>
+    <li><a href="index.html" class="active">Hemeroteca</a></li>
     <li><a href="../obra/index.html">Obra</a></li>
-    <li><a href="../index.html#newsletter" class="nav-cta">Próximamente</a></li>
+    <li><a href="../index.html#newsletter" class="nav-cta">Avísame</a></li>
   </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
 </nav>
+<ul class="nav-drawer" id="navDrawer">
+  <li><a href="../index.html#sobre-el-autor">El Autor</a></li>
+  <li><a href="../index.html#justo-bagueste">Nuevo Libro</a></li>
+  <li><a href="../cuaderno/index.html">Cuaderno</a></li>
+  <li><a href="index.html">Hemeroteca</a></li>
+  <li><a href="../obra/index.html">Obra</a></li>
+  <li><a href="../index.html#newsletter">Avísame del libro</a></li>
+</ul>
 
 <!-- HEADER -->
-<header class="page-header">
-  <div class="page-header-bg">PRENSA</div>
-  <div class="page-header-inner">
-    <p class="section-eyebrow">Archivo periodístico</p>
-    <h1 class="page-title">Heme<em>roteca.</em></h1>
-    <p class="page-desc">
-      Más de 60 crónicas musicales publicadas entre 2010 y 2024
-      en Rockdelux, Diario del Altoaragón y El Estado Mental.
-    </p>
+<header class="hem-header">
+  <div class="hem-header-inner">
+    <p class="hem-eyebrow">Archivo periodístico · 2011–2015</p>
+    <h1 class="hem-title">Heme<em>roteca.</em></h1>
+    <p class="hem-desc">Crónicas musicales, reseñas y anticrónicas. Escritura de urgencia sobre lo que sonaba, lo que fallaba y lo que merecía ser contado.</p>
+    <div class="hem-stats">
+      <div><div class="hem-stat-num">135</div><div class="hem-stat-lbl">Textos archivados</div></div>
+      <div><div class="hem-stat-num">5</div><div class="hem-stat-lbl">Años de escritura</div></div>
+      <div><div class="hem-stat-num">2011–2015</div><div class="hem-stat-lbl">Período</div></div>
+    </div>
   </div>
 </header>
 
 <!-- FILTER BAR -->
 <div class="filter-bar">
-  <span class="filter-label">Filtrar por</span>
-  <button class="filter-btn active" data-filter="all">Todas</button>
-  <button class="filter-btn" data-filter="musica-en-vivo">Música en vivo</button>
-  <button class="filter-btn" data-filter="concierto">Concierto</button>
-  <button class="filter-btn" data-filter="resena">Reseña</button>
-  <button class="filter-btn" data-filter="entrevista">Entrevista</button>
-  <button class="filter-btn" data-filter="festival">Festival</button>
-  <span class="results-count">60+ crónicas</span>
-</div>
-
-<!-- GRID DE CRÓNICAS -->
-<div class="hemeroteca-body">
-  <div class="cronicas-full-grid" id="cronicas-grid">
-
-    <a class="cronica-item reveal" data-tematica="musica-en-vivo" href="los-raros-son-los-demas.html">
-      <div class="ci-top"><span class="ci-tag">Música en vivo</span><span class="ci-date">18 mayo, 2013</span><span class="ci-medio">Diario Altoaragón</span></div>
-      <h2 class="ci-title">Los raros son los demás</h2>
-      <p class="ci-excerpt">La poesía quizá es el género artístico que menos dinero aporta a su autor y el que menos difusión genera, pero es el más sencillo de poner en práctica. El Festival Microfest lo entendía perfectamente.</p>
-      <span class="ci-more">Leer crónica</span>
-    </a>
-
-    <a class="cronica-item reveal" data-tematica="concierto" href="agitado-pero-no-mezclado.html">
-      <div class="ci-top"><span class="ci-tag">Concierto</span><span class="ci-date">Verano, 2014</span><span class="ci-medio">Rockdelux</span></div>
-      <h2 class="ci-title">Agitado pero no mezclado</h2>
-      <p class="ci-excerpt">Cuando Carlicos Brown anunció que había cambiado su nombre artístico en honor a Huesca, la calle entera lo entendió como un regalo. Hasta que apareció Joaquín Sabina desde el hostal de enfrente.</p>
-      <span class="ci-more">Leer crónica</span>
-    </a>
-
-    <a class="cronica-item reveal" data-tematica="resena" href="la-voz-que-nadie-versiono.html">
-      <div class="ci-top"><span class="ci-tag">Reseña</span><span class="ci-date">Marzo, 2015</span><span class="ci-medio">El Estado Mental</span></div>
-      <h2 class="ci-title">La voz que nadie se había atrevido a versionar</h2>
-      <p class="ci-excerpt">Con teclado, guitarras, cello y contrabajo, María José Hernández recuperó las canciones menos conocidas de Labordeta. Ninguna cantante se había atrevido hasta entonces.</p>
-      <span class="ci-more">Leer crónica</span>
-    </a>
-
-    <!-- PLACEHOLDER — añade aquí el resto de crónicas con el mismo patrón -->
-    <!-- Ejemplo:
-    <a class="cronica-item" data-tematica="festival" href="nombre-slug.html">
-      <div class="ci-top"><span class="ci-tag">Festival</span><span class="ci-date">Julio, 2016</span><span class="ci-medio">Rockdelux</span></div>
-      <h2 class="ci-title">Título de la crónica</h2>
-      <p class="ci-excerpt">Extracto de 2-3 líneas...</p>
-      <span class="ci-more">Leer crónica</span>
-    </a>
-    -->
-
+  <div class="filter-bar-inner">
+    <span class="filter-label">Filtrar por año</span>
+    <button class="yr-btn active" data-filter="all">Todos</button><button class="yr-btn" data-filter="2015">2015</button><button class="yr-btn" data-filter="2014">2014</button><button class="yr-btn" data-filter="2013">2013</button><button class="yr-btn" data-filter="2012">2012</button><button class="yr-btn" data-filter="2011">2011</button>
+    <div class="search-wrap">
+      <span class="search-icon">⌕</span>
+      <input type="text" class="h-search" id="hSearch" placeholder="Buscar título…">
+    </div>
+    <span id="results-count">135 textos</span>
   </div>
 </div>
 
-<!-- NEWSLETTER -->
-<section class="newsletter-band" id="newsletter">
-  <h2 class="nl-title">Sé el primero en saberlo.</h2>
-  <p class="nl-subtitle">Fecha de publicación de Justo Bagüeste, nuevas crónicas y noticias del autor.</p>
-  <form class="nl-form">
-    <input type="email" class="nl-input" placeholder="tu@email.com">
-    <button type="submit" class="nl-btn">Apuntarme</button>
-  </form>
-  <p class="nl-note">Sin spam. Solo lo que importa, cuando importa.</p>
-</section>
+<!-- GRID -->
+<div class="h-grid-wrap">
+  <div class="h-grid" id="hGrid">
+    
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">28 Dic 2015</span>
+        </div>
+        <h2 class="h-card-title">Ácido Más Base Produce Sal</h2>
+        <p class="h-card-excerpt">Mártires del compás celebró su gira 20 aniversario en la capital oscense. Esto ya es una tradición. Los conciertos que organiza el Ayuntamiento desde hace cuatro años en estas fechas tan entrañables han dejado huella en parte de la…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/12/28/acido-mas-base-produce-sal/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">23 Dic 2015</span>
+        </div>
+        <h2 class="h-card-title">No Hay Nieve En Saint-Moritz</h2>
+        <p class="h-card-excerpt">Concierto de Los Tres Norteamericanos en el C.C. Matadero. Estimado Vladimir, tal y como me solicitasteis os mando el informe de observación del grupo artístico denominado Los Tres Norteamericanos. En un principio parece que todas las…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/12/23/no-hay-nieve-en-saint-moritz/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">19 Dic 2015</span>
+        </div>
+        <h2 class="h-card-title">Oh Capitán, Mi Capitán</h2>
+        <p class="h-card-excerpt">Ludotech y Rubén Moreno amenizaron la fiesta despedida de Capitán Lillo. Capitán Lillo dice adiós, Rubén Moreno nos dice hola. Y como si de un paso de ecuador se tratase decidieron, bueno, decidió, que es la misma persona, hacer una fiesta…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/12/19/oh-capitan-mi-capitan/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">22 Nov 2015</span>
+        </div>
+        <h2 class="h-card-title">Espacio/Tiempo Roto Durante El Domingo</h2>
+        <p class="h-card-excerpt">Exhibición de El Niño de Elche en el C.C. Matadero. Lo del domingo por la tarde en Huesca es difícil de explicar con palabras. Fueron sentimientos, fuertes sensaciones a cada segundo de concierto. En más de tres y de cuatro ocasiones los…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/11/22/espaciotiempo-roto-durante-el-domingo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">6 Nov 2015</span>
+        </div>
+        <h2 class="h-card-title">Gazpacho Al Curry</h2>
+        <p class="h-card-excerpt">Orquesta Chekara ofreció una gran muestra de flamenco andalusí. En los tiempos que corren, y aunque suene un tanto nostálgico, está todo inventado. Como mucho, en el plano de la música vemos evoluciones de un estilo, pero el germen del…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/11/06/gazpacho-al-curry/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">1 Nov 2015</span>
+        </div>
+        <h2 class="h-card-title">Te Como To’ Lo Black</h2>
+        <p class="h-card-excerpt">Dentro de Periferias se celebró el Bleep!, la noche musical aragonesa. Tras once días de programación, el Festival Periferias ha llegado a su fin, con un éxito de público, que en uno de los últimos actos decidió acudir de forma masiva al…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/11/01/te-como-to-lo-black/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">31 Oct 2015</span>
+        </div>
+        <h2 class="h-card-title">El Negro Sí Puede</h2>
+        <p class="h-card-excerpt">El Palacio de Congresos fue la sede de la noche internacional de Periferias. Periferias, día 9. Seguimos tratando de conocer aquello que integra el concepto Black del Festival. La noche del sábado se celebró la Black Music, Big Music, un…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/10/31/el-negro-si-puede/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">25 Oct 2015</span>
+        </div>
+        <h2 class="h-card-title">Vivir Para Gozarlo</h2>
+        <p class="h-card-excerpt">El youtuber Lory Money segregó suaj por El 21. Festival Periferias, día 3: El concierto del pasado sábado fue uno de los que más impacto me han causado en los últimos meses. Actuaba Lory Money en El Veintiuno. Ese fenómeno de Internet que…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/10/25/vivir-para-gozarlo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">23 May 2015</span>
+        </div>
+        <h2 class="h-card-title">Mi Patria Es La Siesta</h2>
+        <p class="h-card-excerpt">Me gusta dormir. Dentro de las posibilidades humanas es una de mis actividades favoritas. Trato de hacerlo lo máximo posible y en las mejores condiciones posibles. Con ello quiero decir que me preparo para ello, no entro directamente en el…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/05/23/mi-patria-es-la-siesta/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">23 May 2015</span>
+        </div>
+        <h2 class="h-card-title">Derribar Para Construir</h2>
+        <p class="h-card-excerpt">El festival Microfest se ha posicionado como una de las apuestas más vanguardistas de la ciudad. Otros te lo pueden calificar como raro, excéntrico, tal vez, en el perfil menos hiriente, extraño, pero te he de confesar que es uno de los…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/05/23/derribar-para-construir/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">17 May 2015</span>
+        </div>
+        <h2 class="h-card-title">El Lado Más Brillante De La Vida</h2>
+        <p class="h-card-excerpt">Cómo me hubiese gustado verte en el concierto del sábado en el C.C. Matadero. Pero claro, trasladarse en un chas cientos de kilómetros es un poco difícil, aun no han inventado la teletransportación de la materia ni algo parecido. Te lo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/05/17/el-lado-mas-brillante-de-la-vida/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">14 May 2015</span>
+        </div>
+        <h2 class="h-card-title">Melancolía Regeneradora</h2>
+        <p class="h-card-excerpt">El miércoles sobre las diez y media de la noche mucha gente pudo sentirse más o menos triste, decepcionada. Los sentimientos colectivos son difíciles de controlar y predecir. Menos mal que tenemos pequeños placeres para redimirnos…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/05/14/melancolia-regeneradora/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">2 May 2015</span>
+        </div>
+        <h2 class="h-card-title">Droga No, Deporte Sí</h2>
+        <p class="h-card-excerpt">En la vida hay todo tipo de situaciones. Bueno, ya lo sabrás. Y seguro que tienes una corriente de opinión acerca del ocio nocturno y sus beneficios. Es muy posible que te estés engañando con un muro de pensamientos que tenga como núcleo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/05/02/droga-no-deporte-si/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">1 May 2015</span>
+        </div>
+        <h2 class="h-card-title">Tiembla El Misterio</h2>
+        <p class="h-card-excerpt">Dentro de las corrientes musicales que tenemos en la actualidad hay dos claros caminos, el del pop y el del rock. A partir de ahí todas las combinaciones y trasvases posibles. Los grupos que actuaron el pasado jueves en el Centro Cultural…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/05/01/tiembla-el-misterio/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">19 Abr 2015</span>
+        </div>
+        <h2 class="h-card-title">Gora España</h2>
+        <p class="h-card-excerpt">Estamos en una época del año en la que es muy fácil sentirse cansado. Al parecer, a esa sensación se le conoce como astenia primaveral y guarda relación con el cambio de estación y el estrés que ello provoca en el cuerpo y mente de cada…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/04/19/gora-espana/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">31 Mar 2015</span>
+        </div>
+        <h2 class="h-card-title">En La Cresta De La Ola</h2>
+        <p class="h-card-excerpt">Holas vienen olas van. El sábado fue un día la mar de completo a nivel musical en la ciudad de Huesca. En el Centro Cultural Matadero actuaban Los Pipelines, que venían a presentar su primer EP, titulado como ellos y compuesto por cinco…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/03/31/en-la-cresta-de-la-ola/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">28 Mar 2015</span>
+        </div>
+        <h2 class="h-card-title">Gente Que Arde</h2>
+        <p class="h-card-excerpt">Hay semanas que resultan más complicadas que otras. Quizá por eso, el viernes, antes del concierto, estuve releyendo en casa Aullido de Allen Ginsberg. De forma tonta pensé que tal vez la respuesta estaba en la poesía beat y que dentro de…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/03/28/gente-que-arde/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">13 Mar 2015</span>
+        </div>
+        <h2 class="h-card-title">Regreso Al Futuro</h2>
+        <p class="h-card-excerpt">Con tanta teoría y charla alrededor del Congreso de Periodismo de Huesca vamos a acabar con la cabeza hecha un lío. En este mundo prodigital hay una corriente muy clara que aboga por tratar a los lectores como usuarios, en términos…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/03/13/regreso-al-futuro/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">4 Mar 2015</span>
+        </div>
+        <h2 class="h-card-title">Hacer Cosos A La Velocidad Correcta</h2>
+        <p class="h-card-excerpt">Llórales a papá y a mamá, eso siempre funciona. Los post-adolescentes parcialmente traumatizados tenemos nuestros derechos, sobre todo después de haber llevado casi todo el modus operandi de una vida perfecta: – Ir a la Universidad (lo de…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/03/04/hacer-cosos-a-la-velocidad-correcta/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">28 Feb 2015</span>
+        </div>
+        <h2 class="h-card-title">El Poder De Los Recuerdos</h2>
+        <p class="h-card-excerpt">Es curioso, por un lado los organizadores de eventos han notado que cada vez acude menos público a sus espectáculos, y la gente, por su parte, habla de los altos precios de las entradas, con lo que acabaríamos hablando del famoso IVA…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/02/28/el-poder-de-los-recuerdos/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">27 Feb 2015</span>
+        </div>
+        <h2 class="h-card-title">Experiencia Religiosa</h2>
+        <p class="h-card-excerpt">Querido lector, te voy a confesar parte de la metodología que uso para escribir estas crónicas: Normalmente, si sucede algo reseñable o extraordinario, como que el cantante se parta una pierna o el grupo interprete una versión de algún…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/02/27/experiencia-religiosa/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">24 Feb 2015</span>
+        </div>
+        <h2 class="h-card-title">Toma Jeroma</h2>
+        <p class="h-card-excerpt">Hay grupos que se forman con una clara búsqueda del éxito, otros tienen como objetivo encontrar algo nuevo, aportar algo al mundo, y dentro de las mil posibilidades que hay, una de esas opciones elige como leitmotiv el simple hecho de…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/02/24/toma-jeroma/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">13 Feb 2015</span>
+        </div>
+        <h2 class="h-card-title">La Máquina Tomará El Control</h2>
+        <p class="h-card-excerpt">Tenemos asumido que si acudimos a una actuación musical, el elemento clave del mismo, si no el principal, serán las personas que interpretaran las canciones, los resto de detalles quedan en nada si eliminamos a los ejecutantes. Por eso,…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/02/13/la-maquina-tomara-el-control/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2015">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">14 Ene 2015</span>
+        </div>
+        <h2 class="h-card-title">Un Arranque Distorsionado</h2>
+        <p class="h-card-excerpt">Buenos días. Acabo de darme cuenta que tengo muy asumido el tema de que los periódicos tan solo se leen por la mañana. Quizá estés a mitad de tarde en una cafetería, pasando las hojas sin saber muy bien que hacer o tal vez sean altas horas…</p>
+        <a href="https://0lzinmospas.wordpress.com/2015/01/14/un-arranque-distorsionado/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">28 Dic 2014</span>
+        </div>
+        <h2 class="h-card-title">La Espada Como Primera Opción</h2>
+        <p class="h-card-excerpt">Por el titular bien podría desprenderse que esta crónica es una apología de la violencia, y más en los tiempos que corren, parece que todo deba tener una doble lectura, nada más lejos de la realidad. Me explico: La espada es una mítica…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/12/28/la-espada-como-primera-opcion/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">20 Dic 2014</span>
+        </div>
+        <h2 class="h-card-title">Botellón En El Matadero</h2>
+        <p class="h-card-excerpt">Will Spector y Los Fatus es un grupo polarizante, o te caen bien y te conviertes a su fe o les odias y propagas todo tipo de improperios contra ellos, desde que su cantante está gordo hasta que se les está pasando el arroz. He de confesar…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/12/20/botellon-en-el-matadero/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">9 Dic 2014</span>
+        </div>
+        <h2 class="h-card-title">Dos Caras De La Misma Moneda</h2>
+        <p class="h-card-excerpt">Cuando uno acude a un concierto ya sabe más o menos lo que va a escuchar. En líneas generales y aún desconociendo el grupo que toque, casi seguro que lo puedas ubicar dentro del pop, la música electrónica, o la clásica. Y es que cada…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/12/09/dos-caras-de-la-misma-moneda/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">24 Nov 2014</span>
+        </div>
+        <h2 class="h-card-title">Por Fin Es Lunes</h2>
+        <p class="h-card-excerpt">Semanas como la que acaba de finalizar son un buen ejemplo de la gran cantidad de actos culturales que hay en la ciudad. Desde el jueves hasta el domingo sin parar, presentaciones, conciertos y todo tipo de actos que terminan por generar…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/11/24/por-fin-es-lunes/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">9 Nov 2014</span>
+        </div>
+        <h2 class="h-card-title">El Tren De La Vida</h2>
+        <p class="h-card-excerpt">Este fin de semana me he dado cuenta de que hace falta más amor en Huesca, es algo necesario. Dentro de la vida urbana, con el estrés, las jornadas laborales y ocupaciones para sobrevivir, en ocasiones, es complicado adaptar ese elemento a…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/11/09/el-tren-de-la-vida/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">5 Nov 2014</span>
+        </div>
+        <h2 class="h-card-title">Mejor Tarde Que Nunca</h2>
+        <p class="h-card-excerpt">Fotografías: Javier Broto Salvo casos muy excepcionales, todas las crónicas de este blog son publicadas, más tarde o más temprano, por el Diario del Altoaragón. Las cuelgo aquí para tener una especie de control y almacenaje propio. Había…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/11/05/mejor-tarde-que-nunca/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">3 Nov 2014</span>
+        </div>
+        <h2 class="h-card-title">Mézclate Contigo</h2>
+        <p class="h-card-excerpt">Un año más, Periferias ha traído los mejores eventos culturales a la ciudad. En un formato que ha regresado a la duración de dos fines de semana, tras dos años en los que se redujo a uno. Parte de culpa de este alargamiento la tiene el la…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/11/03/mezclate-contigo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">2 Nov 2014</span>
+        </div>
+        <h2 class="h-card-title">¡Hola Fondo Norte!</h2>
+        <p class="h-card-excerpt">Estimado Jesús, no sé cómo repartirán la maquetación de nuestras crónicas, tal vez deberíamos preguntar a los del periódico. Tampoco tengo muy claro el motivo por el que he decidido bautizar a la sala polivalente como fondo sur, pero a…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/11/02/hola-fondo-norte/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">1 Nov 2014</span>
+        </div>
+        <h2 class="h-card-title">¿Dónde Está Mi Peluca?</h2>
+        <p class="h-card-excerpt">Querido lector, el caos es un elemento demasiado cercano. Las circunstancias son poderosas. Y el ser humano es maravilloso. Con esto quiero explicar, por si no ha quedado suficiente claro, que la noche del viernes fue complicada. Por lo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/11/01/donde-esta-mi-peluca/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">17 Oct 2014</span>
+        </div>
+        <h2 class="h-card-title">¡Peret Resucita!</h2>
+        <p class="h-card-excerpt">Por el titular podría entenderse que ha sucedido otra noticia relacionada con la muerte de Peret, recordemos que falleció el pasado veintisiete de agosto pero durante ese mismo día murió y vivió varias veces en distintos comunicados, de lo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/10/17/peret-resucita/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">10 Oct 2014</span>
+        </div>
+        <h2 class="h-card-title">La Revolución Del Silencio</h2>
+        <p class="h-card-excerpt">Esto quizá provoque algún debate, ojalá, pero lo tengo que decir: No entiendo a la gente que va a los conciertos para contarle su vida a la persona que tiene al lado. El jueves, en el Centro Cultural Matadero, Licor de Pájaro presentó su…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/10/10/la-revolucion-del-silencio/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">20 Sep 2014</span>
+        </div>
+        <h2 class="h-card-title">¡Viajes Atómicos, Hiperespacio!</h2>
+        <p class="h-card-excerpt">Hubo sesión doble de electrónica en el Centro Cultural del Matadero el pasado viernes por la noche, de repente, salvando el detalle de las butacas, parecía que estábamos en La Haçienda nutriendonos de beats. Abrieron la noche Enif un combo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/09/20/viajes-atomicos-hiperespacio/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">22 Jun 2014</span>
+        </div>
+        <h2 class="h-card-title">La Teoría De Cuerdas Puesta En Práctica</h2>
+        <p class="h-card-excerpt">La teoría de cuerdas pone de manifiesto que cualquier objeto puntual en realidad está conectado con un todo, con un global, al que está unido mediante vibraciones o alteraciones de la materia. Estas vibraciones bien pueden producirse…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/06/22/la-teoria-de-cuerdas-puesta-en-practica/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">8 Jun 2014</span>
+        </div>
+        <h2 class="h-card-title">La Belleza Del Exceso</h2>
+        <p class="h-card-excerpt">Normalmente, cuando un grupo de música presenta su nuevo disco, realiza una fiesta tras el concierto en un bar cercano al evento o dependiendo del estado de ánimo, tan solo lo presenta con un show más y listo. Pero si tu grupo se llama The…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/06/08/la-belleza-del-exceso/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">6 Jun 2014</span>
+        </div>
+        <h2 class="h-card-title">Las Cerezas Al Camerino</h2>
+        <p class="h-card-excerpt">El simple placer de comprobar la realidad mutada tras ese gesto. Observar la realidad, a los otros, tras una acción propia que se pueda establecer fuera de las normas es bastante divertido. Esa diversión, velocidad y las ganas de molestar…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/06/06/las-cerezas-al-camerino/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">25 May 2014</span>
+        </div>
+        <h2 class="h-card-title">El Cómico Roto</h2>
+        <p class="h-card-excerpt">Las actuales corrientes sociales impiden, o hacen muy difícil, que en España se produzca un macro fenómeno cultural como fue la venida de Chiquito de la Calzada en los años 90. De un día para otro, resultó una explosión, y modificó el…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/05/25/el-comico-roto/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">17 May 2014</span>
+        </div>
+        <h2 class="h-card-title">La Ensalada Del Año</h2>
+        <p class="h-card-excerpt">Ahora que ya ha llegado el buen tiempo todos tendemos a hacer unas cenas más ligeras, variadas y sobre todo, extensas. Una lechuga, un par de tomates, queso fresco, un poco de pimiento… El caso es que la tercera edición del Microfest tiene…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/05/17/la-ensalada-del-ano/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">7 May 2014</span>
+        </div>
+        <h2 class="h-card-title">La Gorra Sobre La Que Gira El Mundo</h2>
+        <p class="h-card-excerpt">La gorra es una prenda de vestir que se usa para proteger la cabeza y por tanto el filtro para poder interpretar de manera correcta el mundo que nos rodea. Su uso aporta cierto estatus social, remarca la personalidad de su portador y en…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/05/07/la-gorra-sobre-la-que-gira-el-mundo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">3 May 2014</span>
+        </div>
+        <h2 class="h-card-title">Mucho Amor Y Alguna Nuez</h2>
+        <p class="h-card-excerpt">Sí, ya lo sé, la obra clásica de Shakespeare no se titula así, pero es algo similar, donde pone amor cámbialo por ruido, elévalo al plural y ahí lo tienes, pero es que además, esto que estás leyendo ahora mismo es la crónica musical de un…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/05/03/mucho-amor-y-alguna-nuez/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">28 Abr 2014</span>
+        </div>
+        <h2 class="h-card-title">El Ritmo Infinito</h2>
+        <p class="h-card-excerpt">El pasado domingo se celebró Multikulti, una de las mejores fiestas interculturales de toda la provincia y la que tiene un ambiente más heterogéneo y agradable. Se realizó como viene siendo costumbre en la zona del teatro griego del Parque…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/04/28/el-ritmo-infinito/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">24 Abr 2014</span>
+        </div>
+        <h2 class="h-card-title">El Lobby De Los Sulfitos</h2>
+        <p class="h-card-excerpt">Los sulfitos son un elemento añadido a gran parte de los vinos actuales. Unos los definen como un conservante y otros los acusan de generar los famosos dolores de cabeza, el caso es que no está clara su función, al menos socialmente, pero…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/04/24/el-lobby-de-los-sulfitos/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">22 Abr 2014</span>
+        </div>
+        <h2 class="h-card-title">La Belleza De La Rutina</h2>
+        <p class="h-card-excerpt">En numerosas ocasiones nos quejamos de la rutina, de sus protocolos y formas, e intentamos ir hacia lugares más disparatados e inesperados, ya sea en puentes, fines de semana o cualquier instante tonto. Pero ay, cuando esa fiesta de…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/04/22/la-belleza-de-la-rutina/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">11 Abr 2014</span>
+        </div>
+        <h2 class="h-card-title">Proyecto Rumba</h2>
+        <p class="h-card-excerpt">Las adicciones, las situaciones extremas, pueden llegar a dejar posos en las personas y en el futuro manifestarse en forma de trauma o vete tú a saber, y ese aspecto, la música, puede ayudar a desatascar algunas situaciones. Así te evitas…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/04/11/proyecto-rumba/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">10 Abr 2014</span>
+        </div>
+        <h2 class="h-card-title">Todo Es Un Cuento De Hadas</h2>
+        <p class="h-card-excerpt">Casi cualquier cuento se basa en la estructura: introducción, nudo y desenlace. Y si se trata de una fantasía de hadas y princesas necesitamos, por lo menos, una protagonista y un reverso tenebroso. En este caso la protagonista fue Emily…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/04/10/todo-es-un-cuento-de-hadas/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">30 Mar 2014</span>
+        </div>
+        <h2 class="h-card-title">Éxtasis Gallego</h2>
+        <p class="h-card-excerpt">Los responsables de ello fueron el veterano grupo de folk gallego Luar Na Lubre, en la que fue su primera actuación en la ciudad tras casi treinta años de formación. Hasta ocho músicos llegaron a estar encima del escenario, las formaciones…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/03/30/extasis-gallego/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">24 Mar 2014</span>
+        </div>
+        <h2 class="h-card-title">El Indie Estaba De Parranda</h2>
+        <p class="h-card-excerpt">Dentro del ajetreo que hubo el pasado fin de semana en la ciudad, el domingo por la tarde hubo un remanso de paz perfecto para echar la vista atrás, reflexionar y valorar todo lo que había pasado. Si alguien se ha llegado a preguntar por…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/03/24/el-indie-estaba-de-parranda/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">23 Mar 2014</span>
+        </div>
+        <h2 class="h-card-title">El Indie Ha Muerto</h2>
+        <p class="h-card-excerpt">Han pasado veinte años desde el inicio del indie como estilo, movimiento cultural o llámalo x. Veinte. En un espacio de tiempo tan grande es normal que se creen normas alrededor de un estilo, así como pautas de vestimenta o comportamiento.…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/03/23/el-indie-ha-muerto/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">14 Mar 2014</span>
+        </div>
+        <h2 class="h-card-title">Transcantábrico Folk Express</h2>
+        <p class="h-card-excerpt">La puesta en marcha de la nueva línea transcantábrica folk ha sido todo un éxito tal y como pudimos comprobar en su parada del pasado jueves en el Centro Cultural del Matadero. Pero bueno, antes de nada habrá que decir, para no engañar a…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/03/14/transcantabrico-folk-express/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">9 Mar 2014</span>
+        </div>
+        <h2 class="h-card-title">¡¡¡52.284 Abducidos En Huesca!!!</h2>
+        <p class="h-card-excerpt">Se podría decir que algo extraordinario sucedió el pasado sábado por la noche en Huesca, pero viene siendo algo común y lo que en principio podría calificarse como anecdótico va calando en el aspecto de costumbre y da bastante miedo. La…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/03/09/52-284-abducidos-en-huesca/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">28 Feb 2014</span>
+        </div>
+        <h2 class="h-card-title">Afonía Del Nuevo Mundo</h2>
+        <p class="h-card-excerpt">Vivimos en una época de recortes, ajustes, reajustes y todo tipo de tendencias a la baja. Y lo peor de todo es que nos estamos acostumbrando a ello. Por ello nunca está de más que alguien venga a reivindicar un poco de acción con ayuda de…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/02/28/afonia-del-nuevo-mundo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">23 Feb 2014</span>
+        </div>
+        <h2 class="h-card-title">¡Viva La Música Castellana!</h2>
+        <p class="h-card-excerpt">Partiendo de que la música es un concepto universal, sus localismos, el folklore de cada tierra, tienen un mayor porcentaje de aceptación que el resto de estilos. Además, siempre retrotraen recuerdos o evocan momentos pasados y manifiestan…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/02/23/viva-la-musica-castellana/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">21 Feb 2014</span>
+        </div>
+        <h2 class="h-card-title">Una Vida En Veinte Canciones</h2>
+        <p class="h-card-excerpt">Nunca está de más hacer un resumen, echar una mirada atrás y ver lo que se ha hecho hasta ese momento. Y para ello qué mejor excusa que aprovechar un redescubrimiento por parte del público. Eso es lo que le está sucediendo actualmente a…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/02/21/una-vida-en-veinte-canciones/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">14 Feb 2014</span>
+        </div>
+        <h2 class="h-card-title">Los Profetas Del Tango</h2>
+        <p class="h-card-excerpt">La gente observa manifestaciones o profecías en todo tipo de elementos cotidianos: en las fotos, en las tostadas, manchas de humedad… o en otras más normales como pueden ser los textos de las canciones. Pues bien, el pasado jueves se…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/02/14/los-profetas-del-tango/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">8 Feb 2014</span>
+        </div>
+        <h2 class="h-card-title">Vivir / Aunque</h2>
+        <p class="h-card-excerpt">Poco a poco, Olga y Los Ministriles, como hormiguitas, van sumando nuevas capas a su carrera musical. El sábado presentaron su tercer disco en el Centro Cultural del Matadero. Tras “Zimbrea” y “Mai”, el grupo ya empieza a tener un amplio…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/02/08/vivir-aunque/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">26 Ene 2014</span>
+        </div>
+        <h2 class="h-card-title">Canciones Para El Fin Del Mundo</h2>
+        <p class="h-card-excerpt">Las canciones de Dorian Wood tienen un punto melodramático muy intenso. Son pequeños exorcismos, bandas sonoras para salir adelante de momentos duros en esta vida loca, o como dijo el propio Dorian, canciones para el fin del mundo,…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/01/26/canciones-para-el-fin-del-mundo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2014">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">17 Ene 2014</span>
+        </div>
+        <h2 class="h-card-title">Déjese Querer</h2>
+        <p class="h-card-excerpt">Después de un encuentro fortuito hace ya casi dos meses, el pasado jueves volví a coincidir con Oriol. Había acudido al Centro Cultural del Matadero para ver el concierto de Zenet, aunque por lo que me contó más tarde, él lo había…</p>
+        <a href="https://0lzinmospas.wordpress.com/2014/01/17/dejese-querer/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">27 Dic 2013</span>
+        </div>
+        <h2 class="h-card-title">Dinamismo Entre Caballeros</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/12/27/dinamismo-entre-caballeros/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">8 Dic 2013</span>
+        </div>
+        <h2 class="h-card-title">El Guardián Entre El Centeno</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/12/08/el-guardian-entre-el-centeno/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">18 Nov 2013</span>
+        </div>
+        <h2 class="h-card-title">El Encantador De Serpientes</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/11/18/el-encantador-de-serpientes/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">11 Nov 2013</span>
+        </div>
+        <h2 class="h-card-title">El Sombrerero Loco</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/11/11/el-sombrerero-loco/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">3 Nov 2013</span>
+        </div>
+        <h2 class="h-card-title">La Alegría De Vivir</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/11/03/la-alegria-de-vivir/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">1 Nov 2013</span>
+        </div>
+        <h2 class="h-card-title">Fiestón En El Hipermercado</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/11/01/fieston-en-el-hipermercado/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">31 Oct 2013</span>
+        </div>
+        <h2 class="h-card-title">¡La Madre Que Os Parió!</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/10/31/la-madre-que-os-pario/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">21 Oct 2013</span>
+        </div>
+        <h2 class="h-card-title">¡Que Esto No Acabe Nunca!</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/10/21/que-esto-no-acabe-nunca/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">7 Sep 2013</span>
+        </div>
+        <h2 class="h-card-title">El Ruido Nos Salvará</h2>
+        <p class="h-card-excerpt">El asado mecánico salió con nota alta del Centro Cultural del Matadero. Un directo atronador. Arrollador.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/09/07/el-ruido-nos-salvara/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">22 Jun 2013</span>
+        </div>
+        <h2 class="h-card-title">¡¡¡Que Yaaa!!!</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/06/22/que-yaaa/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">21 Jun 2013</span>
+        </div>
+        <h2 class="h-card-title">Un Hombre Bueno</h2>
+        <p class="h-card-excerpt">Gran concierto. El pop fronterizo tocó el corazón de los oscenses. ¡Comanche!</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/06/21/un-hombre-bueno/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">8 Jun 2013</span>
+        </div>
+        <h2 class="h-card-title">¿Y Tú Dónde Estabas?</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/06/08/y-tu-donde-estabas/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">18 May 2013</span>
+        </div>
+        <h2 class="h-card-title">Los Raros Son Los Demás</h2>
+        <p class="h-card-excerpt">La poesía quizá es el género artístico que menos dinero aporta a su autor y el que menos difusión genera pero es el más sencillo de poner en práctica y uno de los que más satisfacciones da al propio autor.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/05/18/los-raros-son-los-demas/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">15 May 2013</span>
+        </div>
+        <h2 class="h-card-title">Te Has Marchado Con Café</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/05/15/te-has-marchado-con-cafe/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">5 May 2013</span>
+        </div>
+        <h2 class="h-card-title">¡Esto Es Un Robot!</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/05/05/esto-es-un-robot/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">4 May 2013</span>
+        </div>
+        <h2 class="h-card-title">Goles Son Amores</h2>
+        <p class="h-card-excerpt">Condensar todo el trabajo de un año en un fin de semana no es sano, no es beneficioso, pone en tensión e incluso cabrea. Pero aún así motiva e ilusiona.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/05/04/goles-son-amores/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">28 Abr 2013</span>
+        </div>
+        <h2 class="h-card-title">Gozor</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/04/28/gozor/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">22 Abr 2013</span>
+        </div>
+        <h2 class="h-card-title">El Hombre Quemado</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/04/22/el-hombre-quemado/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">8 Abr 2013</span>
+        </div>
+        <h2 class="h-card-title">La Energia Del Vacio</h2>
+        <p class="h-card-excerpt">El setenta por ciento de la realidad es vacío. Eso representa una gran cantidad de vacío con respecto a lo que vemos, “a lo que hay”, que en total corresponde a un mísero cuatro por ciento. Mucho vacío para cantarle, como le dijo una prima…</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/04/08/la-energia-del-vacio/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">7 Abr 2013</span>
+        </div>
+        <h2 class="h-card-title">La Silla Crujía</h2>
+        <p class="h-card-excerpt">Por unas horas volvió el frío. Como un recuerdo de febrero. Un recuerdo amargo. Añorando algo que ya sabes que es malo pero en el fondo te atrae. Así son las canciones de Julio de la Rosa. Temas revestidos de sexo, drogas y rock and roll…</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/04/07/la-silla-crujia/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">24 Mar 2013</span>
+        </div>
+        <h2 class="h-card-title">Fiebre Del Sábado Noche</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/03/24/fiebre-del-sabado-noche/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">21 Mar 2013</span>
+        </div>
+        <h2 class="h-card-title">Toma Nota</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/03/21/toma-nota/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">13 Mar 2013</span>
+        </div>
+        <h2 class="h-card-title">Una Noche Es Una Noche</h2>
+        <p class="h-card-excerpt">Pero en ocasiones las primeras sensaciones no son las correctas, Le Parody es una propuesta seria, que se basa en la mezcla de melodías de corte tradicional folk con electrónica. Una escenografía mínima, un ukelele, dos micros, un xilófono…</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/03/13/una-noche-es-una-noche/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">8 Mar 2013</span>
+        </div>
+        <h2 class="h-card-title">Los Beatles Y La Marca España: Iberia Jude</h2>
+        <p class="h-card-excerpt">En la grabación de Hey Jude hubo, como mínimo, dos españoles.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/03/08/los-beatles-y-la-marca-espana-iberia-jude/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">24 Feb 2013</span>
+        </div>
+        <h2 class="h-card-title">¡Sha-La-La!</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/02/24/sha-la-la/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">16 Feb 2013</span>
+        </div>
+        <h2 class="h-card-title">Tocando El Cielo</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/02/16/tocando-el-cielo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">14 Feb 2013</span>
+        </div>
+        <h2 class="h-card-title">Iglesia Psicodélica</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/02/14/iglesia-psicodelica/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">25 Ene 2013</span>
+        </div>
+        <h2 class="h-card-title">Más Allá Del Arcoiris</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/01/25/mas-alla-del-arcoiris/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2013">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">19 Ene 2013</span>
+        </div>
+        <h2 class="h-card-title">Bisoños F.C.</h2>
+        <p class="h-card-excerpt">Para escribir la crónica del concierto tuve que desplazarme cinco kilómetros fuera de la ciudad. En medio de la gran tormenta del fin de semana, imaginatelo, pero era necesario, necesitaba reflexionar sobre lo que había visto. Hubo un…</p>
+        <a href="https://0lzinmospas.wordpress.com/2013/01/19/bisonos-f-c/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">28 Dic 2012</span>
+        </div>
+        <h2 class="h-card-title">Space Is The Place</h2>
+        <p class="h-card-excerpt">Fotografía: Gregorio Lombarda El jueves fue el plato fuerte dentro de la programación creada para promocionar el nuevo planetario de Huesca. En el incomparable marco del Espacio 0.42 actuaba Brian Eno, el multiartista y gurú de las nuevas…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/12/28/space-is-the-place/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">15 Dic 2012</span>
+        </div>
+        <h2 class="h-card-title">Como Una Escena De Fitzcarraldo</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/12/15/como-una-escena-de-fitzcarraldo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">14 Dic 2012</span>
+        </div>
+        <h2 class="h-card-title">Los Sefardíes Retornan A España</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/12/14/los-sefardies-retornan-a-espana/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">5 Dic 2012</span>
+        </div>
+        <h2 class="h-card-title">Nuevo Desplazamiento Del Eje Terrestre</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/12/05/nuevo-desplazamiento-del-eje-terrestre/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">30 Nov 2012</span>
+        </div>
+        <h2 class="h-card-title">Coliflor Cósmica</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/11/30/coliflor-cosmica/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">18 Nov 2012</span>
+        </div>
+        <h2 class="h-card-title">Palabras Que No Terminan</h2>
+        <p class="h-card-excerpt">Y tras un pequeño descanso fue el turno del segundo concierto de la noche, a cargo de The Black Swans, también un grupo de folk, también estadounidense. En este caso la actuación la sobrellevaron entre dos, guitarra acústica y steel…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/11/18/palabras-que-no-terminan/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">11 Nov 2012</span>
+        </div>
+        <h2 class="h-card-title">Los Sueños Son Posibles</h2>
+        <p class="h-card-excerpt">El domingo fue un día especial, el salón de actos del matadero esperaba a Pablo Guerrero. El poeta, el cantautor, figura emblemática de la música española. La banda musical que le acompaña, y de manera perfecta, fue la encargada de abrir…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/11/11/los-suenos-son-posibles/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">7 Nov 2012</span>
+        </div>
+        <h2 class="h-card-title">Sin Perdón</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/11/07/sin-perdon/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">1 Nov 2012</span>
+        </div>
+        <h2 class="h-card-title">Truco O Trato</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/11/01/truco-o-trato/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">28 Oct 2012</span>
+        </div>
+        <h2 class="h-card-title">El Frío Adelgaza</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/10/28/el-frio-adelgaza/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">28 Oct 2012</span>
+        </div>
+        <h2 class="h-card-title">Bailando Con La Muerte</h2>
+        <p class="h-card-excerpt">El sábado… qué lejos nos pilla ya eh, además con el cambio de hora, menudo bajón. El sábado fue etapa la etapa reina de Periferias, venían los foráneos y todo el mundo se puso sus mejores galas. A las diez y media de la noche el jaleo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/10/28/bailando-con-la-muerte/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">27 Oct 2012</span>
+        </div>
+        <h2 class="h-card-title">Periferias Al Rescate</h2>
+        <p class="h-card-excerpt">Vale vale vale vale, esto que tú sientes ahora tiene un nombre, se llama: jet lag social. No sabes con precisión en que momento del fin de semana estás, ¿verdad? Y encima han peatonalizado el coso y te sientes un poco como en San Lorenzo.…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/10/27/periferias-al-rescate/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">26 Oct 2012</span>
+        </div>
+        <h2 class="h-card-title">Un Mutante Arrasa Huesca</h2>
+        <p class="h-card-excerpt">La actuación arrancó en caída libre desde el minuto uno. Ignatius salió al escenario y uno de los asistentes le grito: “¡Sácate un pecho!”. Eso provocó el desbordamiento del monologuista que atacó frontalmente al espectador. “¿Es eso lo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/10/26/un-mutante-arrasa-huesca/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">22 Oct 2012</span>
+        </div>
+        <h2 class="h-card-title">Chim-Pum</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/10/22/chim-pum/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">9 Oct 2012</span>
+        </div>
+        <h2 class="h-card-title">Vuelve El Fluzo</h2>
+        <p class="h-card-excerpt">Pues no, no te vi por el concierto del martes en el Matadero. Estuvo bastante bien, si hubieses estado en Huesca te habrías animado, que sí. Zombie Zombie llevan ese estilo krautrock que tantas ganas da de moverse. Ya, que si la hora no…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/10/09/vuelve-el-fluzo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">22 Sep 2012</span>
+        </div>
+        <h2 class="h-card-title">España Necesita Almax</h2>
+        <p class="h-card-excerpt">El pasado viernes volvieron los conciertos al Matadero, así que es oficial, el verano se ha terminado. Vuelven esas rondas de conciertos que tanta vida le dan a esta ciudad. En dos días Periferias y sin que te des cuenta, fin de año, ya lo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/09/22/espana-necesita-almax/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">15 Jul 2012</span>
+        </div>
+        <h2 class="h-card-title">Corre Perro Corre</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/07/15/corre-perro-corre/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">8 Jul 2012</span>
+        </div>
+        <h2 class="h-card-title">La Nueva Generación Del 98</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/07/08/la-nueva-generacion-del-98/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">21 Jun 2012</span>
+        </div>
+        <h2 class="h-card-title">Ciervo Con Setas</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/06/21/ciervo-con-setas/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">19 Jun 2012</span>
+        </div>
+        <h2 class="h-card-title">Familia Feliz</h2>
+        <p class="h-card-excerpt">Aquí no paró de llover en todo el día. Lluvia como fenómeno atmosférico, que últimamente hay que explicarlo todo. Aparte de eso pues estamos en la semana de la música y para empezarla con buen pie vinieron a tocar Tenniscoats, un grupo…</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/06/19/familia-feliz/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">17 Jun 2012</span>
+        </div>
+        <h2 class="h-card-title">La Sudada Del Clon</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/06/17/la-sudada-del-clon/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">29 May 2012</span>
+        </div>
+        <h2 class="h-card-title">El Cartón Y La Libertad</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/05/29/el-carton-y-la-libertad/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">27 May 2012</span>
+        </div>
+        <h2 class="h-card-title">Gente Con Puerros</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/05/27/gente-con-puerros/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">8 May 2012</span>
+        </div>
+        <h2 class="h-card-title">Cruceros Gibson</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/05/08/cruceros-gibson/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">3 May 2012</span>
+        </div>
+        <h2 class="h-card-title">Alfanova Kit De Microclimas</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/05/03/alfanova-kit-de-microclimas/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">1 May 2012</span>
+        </div>
+        <h2 class="h-card-title">El Matadero A Traves Del Espejo</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/05/01/el-matadero-a-traves-del-espejo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">27 Abr 2012</span>
+        </div>
+        <h2 class="h-card-title">Los Estados Del Alma</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/04/27/los-estados-del-alma/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">21 Abr 2012</span>
+        </div>
+        <h2 class="h-card-title">Compro Oro/Pago Máximo</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/04/21/compro-oropago-maximo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">20 Abr 2012</span>
+        </div>
+        <h2 class="h-card-title">¡Vivan Los Novios!</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/04/20/vivan-los-novios/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">14 Abr 2012</span>
+        </div>
+        <h2 class="h-card-title">Activando El Plan B</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/04/14/activando-el-plan-b/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">12 Abr 2012</span>
+        </div>
+        <h2 class="h-card-title">Emo-Filia</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/04/12/emo-filia/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">1 Abr 2012</span>
+        </div>
+        <h2 class="h-card-title">A Gustico</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/04/01/a-gustico/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">14 Mar 2012</span>
+        </div>
+        <h2 class="h-card-title">El Campo Nos Sienta Genial</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/03/14/el-campo-nos-sienta-genial/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">26 Feb 2012</span>
+        </div>
+        <h2 class="h-card-title">Hay Que Invadir Portugal</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/02/26/hay-que-invadir-portugal/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">15 Feb 2012</span>
+        </div>
+        <h2 class="h-card-title">Blue Velvet Experience</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/02/15/blue-velvet-experience/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">11 Feb 2012</span>
+        </div>
+        <h2 class="h-card-title">La Rotonda Es Mía</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/02/11/la-rotonda-es-mia/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2012">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">28 Ene 2012</span>
+        </div>
+        <h2 class="h-card-title">Chemtrails Y Platillos Volantes</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2012/01/28/chemtrails-y-platillos-volantes/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">28 Dic 2011</span>
+        </div>
+        <h2 class="h-card-title">Ringo For President</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/12/28/ringo-for-president/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">28 Dic 2011</span>
+        </div>
+        <h2 class="h-card-title">Si Tú Me Dices Ven, Lo Dejo Todo</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/12/28/si-tu-me-dices-ven-lo-dejo-todo/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">16 Dic 2011</span>
+        </div>
+        <h2 class="h-card-title">Ajardeisnai</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/12/16/ajardeisnai/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Crónica</span>
+          <span class="h-date">16 Dic 2011</span>
+        </div>
+        <h2 class="h-card-title">Opalino</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/12/16/opalino/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Directo</span>
+          <span class="h-date">8 Dic 2011</span>
+        </div>
+        <h2 class="h-card-title">España, España</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/12/08/espana-espana/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Reportaje</span>
+          <span class="h-date">27 Nov 2011</span>
+        </div>
+        <h2 class="h-card-title">Rockocó</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/11/27/rockoco/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Concierto</span>
+          <span class="h-date">20 Nov 2011</span>
+        </div>
+        <h2 class="h-card-title">Triple De Riki En El Recuento</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/11/20/triple-de-riki-en-el-recuento/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Reseña</span>
+          <span class="h-date">14 Nov 2011</span>
+        </div>
+        <h2 class="h-card-title">Just For Men</h2>
+        <p class="h-card-excerpt">Texto archivado del blog Anticrónicas.</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/11/14/just-for-men/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+      <article class="h-card" data-year="2011">
+        <div class="h-card-top">
+          <span class="h-tag">Música en vivo</span>
+          <span class="h-date">13 Nov 2011</span>
+        </div>
+        <h2 class="h-card-title">Nick Nolte Estuvo En Huesca</h2>
+        <p class="h-card-excerpt">Existe una leyenda oscense que cuenta que cada vez que se genera un evento de cierta importancia/notoriedad, Nick Nolte se hace carne y aparece por esa situación, aportando parte de su alegría. Pues el sábado Nick apareció, quizá un poco…</p>
+        <a href="https://0lzinmospas.wordpress.com/2011/11/13/nick-nolte-estuvo-en-huesca/" target="_blank" rel="noopener" class="h-card-orig">Leer original ↗</a>
+      </article>
+    <div class="no-results" id="noResults" style="display:none;">No se encontraron textos con ese criterio.</div>
+  </div>
+</div>
 
+<!-- FOOTER -->
 <footer>
-  <div class="footer-logo">Antonio Romeo</div>
+  <a href="../index.html" class="footer-logo">Antonio Romeo</a>
   <nav class="footer-nav">
     <a href="../index.html#sobre-el-autor">El autor</a>
+    <a href="../cuaderno/index.html">Cuaderno</a>
     <a href="index.html">Hemeroteca</a>
     <a href="../obra/index.html">Obra</a>
     <a href="../index.html#newsletter">Contacto</a>
@@ -194,6 +1385,59 @@
   <p class="footer-copy">© 2025 Antonio Romeo Fernández</p>
 </footer>
 
-<script src="../assets/js/main.js"></script>
+<script>
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 40 ? '0 4px 30px rgba(20,18,16,.08)' : 'none';
+}, {passive:true});
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+});
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open'); drawer.classList.remove('open'); document.body.style.overflow = '';
+}));
+
+// Filter + Search
+const cards = Array.from(document.querySelectorAll('.h-card'));
+const countEl = document.getElementById('results-count');
+const noRes = document.getElementById('noResults');
+let activeYear = 'all';
+let searchVal = '';
+
+function updateGrid() {
+  let visible = 0;
+  cards.forEach(card => {
+    const yr = card.dataset.year;
+    const title = card.querySelector('.h-card-title').textContent.toLowerCase();
+    const excerpt = (card.querySelector('.h-card-excerpt') || {}).textContent?.toLowerCase() || '';
+    const yearOk = activeYear === 'all' || yr === activeYear;
+    const searchOk = !searchVal || title.includes(searchVal) || excerpt.includes(searchVal);
+    const show = yearOk && searchOk;
+    card.classList.toggle('hidden', !show);
+    if(show) visible++;
+  });
+  countEl.textContent = visible + ' texto' + (visible === 1 ? '' : 's');
+  noRes.style.display = visible === 0 ? 'block' : 'none';
+}
+
+document.querySelectorAll('.yr-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.yr-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    activeYear = btn.dataset.filter;
+    updateGrid();
+  });
+});
+
+document.getElementById('hSearch').addEventListener('input', e => {
+  searchVal = e.target.value.trim().toLowerCase();
+  updateGrid();
+});
+</script>
 </body>
 </html>

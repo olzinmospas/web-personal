@@ -145,6 +145,16 @@ section, header, footer, nav, div {
 .lang-switch a:hover{opacity:1;color:var(--ink);}
 .lang-switch a.active-lang{opacity:1;color:var(--ink);border-color:var(--line);font-weight:500;}
 .lang-switch span.lang-sep{color:var(--line);font-size:9px;opacity:.5;}
+
+/* ── LANG SWITCH MOBILE FIX ── */
+@media(max-width:1024px){
+  nav .lang-switch{display:none;}
+  .nav-hamburger{display:flex!important;z-index:600;}
+}
+
+/* ── NEWSLETTER IFRAME ── */
+.nl-iframe-wrap{max-width:540px;margin:0 auto;}
+.nl-iframe-wrap iframe{width:100%;border:none;border-radius:4px;min-height:305px;background:transparent;}
 </style>
 <link rel="alternate" hreflang="es" href="https://antonioromeo.work/obra/index.html">
 <link rel="alternate" hreflang="en" href="https://antonioromeo.work/en/obra/index.html">
@@ -311,10 +321,9 @@ section, header, footer, nav, div {
 <section class="newsletter-band" id="newsletter">
   <h2 class="nl-title">Sê o primeiro a saber.</h2>
   <p class="nl-subtitle">Novidades editoriais e notícias do autor.</p>
-  <form class="nl-form" id="nlForm">
-    <input type="email" class="nl-input" name="EMAIL" placeholder="teu@email.com" autocomplete="email" required>
-    <button type="submit" class="nl-btn">Subscrever</button>
-  </form>
+  <div class="nl-iframe-wrap">
+    <iframe src="https://e3522075.sibforms.com/serve/MUIFADd3_f9VW6LnHG5yUSAvCKzBhwuw07QRv64dgcZzKAtMn4ydgwhRUjRl6OFIbDpeLLx-lKKoeIt2v5km91HlIsuqaPTxdMzApw4amrf9Z-eQkc6jrnoUp-hBkcD-HcULjiTjtLLb8asXVe5JgjthnBiaWIufydk4wRB-FaTynMW9BqVTPn9meADoHAqGqiFFxBx9k91a3eCkDw==" scrolling="auto" allowfullscreen></iframe>
+  </div>
 </section>
 
 <footer>

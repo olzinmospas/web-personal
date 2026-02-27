@@ -127,6 +127,16 @@ section, header, footer, nav, div {
 .lang-switch a:hover{opacity:1;color:var(--ink);}
 .lang-switch a.active-lang{opacity:1;color:var(--ink);border-color:var(--line);font-weight:500;}
 .lang-switch span.lang-sep{color:var(--line);font-size:9px;opacity:.5;}
+
+/* ── LANG SWITCH MOBILE FIX ── */
+@media(max-width:1024px){
+  nav .lang-switch{display:none;}
+  .nav-hamburger{display:flex!important;z-index:600;}
+}
+
+/* ── NEWSLETTER IFRAME ── */
+.nl-iframe-wrap{max-width:540px;margin:0 auto;}
+.nl-iframe-wrap iframe{width:100%;border:none;border-radius:4px;min-height:305px;background:transparent;}
 </style>
 <link rel="alternate" hreflang="es" href="https://antonioromeo.work/hemeroteca/index.html">
 <link rel="alternate" hreflang="en" href="https://antonioromeo.work/en/hemeroteca/index.html">

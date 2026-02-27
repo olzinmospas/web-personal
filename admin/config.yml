@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: TU-USUARIO/web-personal   # ← cambia TU-USUARIO por tu usuario de GitHub
+  repo: olzinmospas/olzinmospas.github.io   # ← cambia TU-USUARIO por tu usuario de GitHub
   branch: main
 
 media_folder: "assets/img/cronicas"

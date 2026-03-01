@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/x-icon" href="../favicon.ico">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<meta name="description" content="Notebook de Antonio Romeo — Serie GE: crónicas personales desde Portugal. Textos en español y portugués publicados on Medium.">
+<title>Notebook — Antonio Romeo</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=EB+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F5EFE0;--cream-dark:#EAE0CC;--ink:#141210;--ink-soft:#1C1610;--earth:#8B6E4E;--earth-light:#B8976A;--rust:#7C3D1E;--paper:#FAF7F0;--text-body:#3D3025;--line:rgba(139,110,78,.22);}
+*{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;overflow-x:hidden;max-width:100%;}
+body{background:var(--paper);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;}
+body::after{content:'';position:fixed;inset:0;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:sticky;top:0;left:0;right:0;z-index:9000;display:flex;align-items:center;justify-content:space-between;padding:20px 48px;background:#FAF7F0;border-bottom:1px solid rgba(139,110,78,0.12);transition:all .3s ease;}
+.nav-logo{font-family:'Playfair Display',serif;font-size:18px;font-weight:400;letter-spacing:.02em;color:#1A1A1A;text-decoration:none;flex-shrink:0;}
+.nav-links{display:flex;gap:28px;list-style:none;align-items:center;}
+.nav-links a{font-size:13px;letter-spacing:.03em;text-transform:uppercase;color:#1A1A1A;text-decoration:none;transition:color .3s;white-space:nowrap;font-weight:500;}
+.nav-links a:hover,.nav-links a.active{color:var(--earth);}
+.nav-cta{background:#1A1A1A!important;color:#F5EFE0!important;padding:10px 24px;font-size:12px!important;font-weight:600!important;}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;background:none;border:none;}
+.nav-hamburger span{display:block;width:28px;height:3px;background:#1A1A1A;transition:all .3s;}
+.nav-hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-hamburger.open span:nth-child(2){opacity:0;}
+.nav-hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-drawer{display:none;position:fixed;inset:70px 0 0 0;background:#FAF7F0;z-index:490;flex-direction:column;padding:40px 32px;border-top:1px solid var(--line);}
+.nav-drawer.open{display:flex;}
+.nav-drawer li{list-style:none;border-bottom:1px solid var(--line);}
+.nav-drawer li a{display:block;padding:18px 0;font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--text-body);text-decoration:none;}
+.nav-drawer li:last-child{border-bottom:none;padding-top:24px;}
+.nav-drawer li:last-child a{background:var(--ink);color:var(--cream);padding:16px 24px;text-align:center;display:block;}
+
+/* HEADER */
+.cuaderno-header{min-height:56vh;background:var(--ink);padding:110px 72px 72px;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:flex-end;}
+.cuaderno-header::before{content:'';position:absolute;inset:0;background-image:repeating-linear-gradient(to bottom,transparent,transparent 39px,rgba(139,110,78,.07) 39px,rgba(139,110,78,.07) 40px);pointer-events:none;}
+.cuaderno-header::after{content:'';position:absolute;top:0;bottom:0;left:110px;width:1px;background:rgba(124,61,30,.2);pointer-events:none;}
+.ch-inner{position:relative;z-index:1;max-width:760px;}
+.ch-eyebrow{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--earth-light);display:flex;align-items:center;gap:14px;margin-bottom:24px;}
+.ch-eyebrow::before{content:'';width:28px;height:1px;background:var(--earth-light);}
+.ch-title{font-family:'Playfair Display',serif;font-size:clamp(60px,8vw,108px);font-weight:900;line-height:.9;color:var(--cream);margin-bottom:22px;letter-spacing:-.02em;}
+.ch-title em{font-style:italic;color:var(--earth-light);}
+.ch-desc{font-family:'EB Garamond',serif;font-size:clamp(16px,1.8vw,20px);font-style:italic;color:rgba(245,239,224,.48);line-height:1.65;max-width:520px;margin-bottom:36px;}
+.ch-medium-link{display:inline-flex;align-items:center;gap:10px;border:1px solid rgba(139,110,78,.3);padding:12px 20px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:rgba(245,239,224,.55);text-decoration:none;transition:all .2s;}
+.ch-medium-link:hover{border-color:var(--earth-light);color:var(--earth-light);}
+.ch-m-dot{width:18px;height:18px;border-radius:50%;background:rgba(245,239,224,.7);display:flex;align-items:center;justify-content:center;font-size:10px;font-weight:700;color:var(--ink);flex-shrink:0;}
+
+/* STATS BAND */
+.stats-band{background:var(--cream-dark);border-bottom:1px solid var(--line);padding:24px 72px;display:flex;align-items:center;gap:48px;}
+.sb-stat{display:flex;align-items:baseline;gap:8px;}
+.sb-num{font-family:'Playfair Display',serif;font-size:32px;font-weight:900;color:var(--ink);line-height:1;}
+.sb-lbl{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);}
+.sb-divider{width:1px;height:32px;background:var(--line);}
+.sb-loading{font-family:'EB Garamond',serif;font-size:14px;font-style:italic;color:var(--earth);opacity:.6;}
+
+/* CONTENT AREA */
+.cuaderno-body{padding:64px 72px 88px;max-width:1240px;margin:0 auto;}
+
+/* Featured post */
+.rss-featured{display:grid;grid-template-columns:400px 1fr;background:var(--ink);text-decoration:none;color:inherit;border-bottom:3px solid transparent;transition:border-color .2s;margin-bottom:3px;min-height:300px;}
+.rss-featured:hover{border-bottom-color:var(--earth-light);}
+.rss-featured-img{background-size:cover;background-position:center;opacity:.55;filter:grayscale(20%) contrast(1.1);transition:opacity .3s;}
+.rss-featured:hover .rss-featured-img{opacity:.75;}
+.rss-featured-body{padding:36px 40px;display:flex;flex-direction:column;gap:10px;}
+.rss-featured-title{font-family:'Playfair Display',serif;font-size:clamp(20px,2.5vw,30px);font-weight:900;color:var(--cream);line-height:1.15;margin-top:auto;}
+.rss-featured-date{font-family:'EB Garamond',serif;font-size:12px;font-style:italic;color:var(--earth-light);opacity:.7;}
+.rss-featured-excerpt{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:rgba(245,239,224,.5);line-height:1.7;}
+.cf-tag{font-size:8px;letter-spacing:.18em;text-transform:uppercase;color:var(--cream);background:var(--earth);padding:4px 10px;font-weight:500;display:inline-block;align-self:flex-start;}
+.cf-more{font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--earth-light);display:flex;align-items:center;gap:8px;}
+.cf-more::after{content:'→';}
+
+/* Cards grid */
+.rss-cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--line);}
+.rss-card{background:var(--paper);text-decoration:none;color:inherit;display:flex;flex-direction:column;border-bottom:2px solid transparent;transition:background .2s,border-color .2s;}
+.rss-card:hover{background:var(--cream-dark);border-bottom-color:var(--earth);}
+.rss-card-img{height:130px;background-size:cover;background-position:center;filter:grayscale(10%) contrast(1.05);opacity:.82;transition:opacity .3s;}
+.rss-card:hover .rss-card-img{opacity:1;}
+.rss-card-body{padding:18px 20px;display:flex;flex-direction:column;flex:1;gap:5px;}
+.cc-meta{display:flex;gap:8px;align-items:center;margin-bottom:4px;}
+.cc-tag{font-size:7.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--cream);background:var(--earth);padding:3px 8px;font-weight:500;}
+.cc-date{font-family:'EB Garamond',serif;font-size:11px;font-style:italic;color:var(--earth);margin-left:auto;}
+.rss-card-title{font-family:'Playfair Display',serif;font-size:15px;font-weight:700;color:var(--ink);line-height:1.25;}
+.rss-card-excerpt{font-family:'EB Garamond',serif;font-size:13.5px;font-style:italic;color:var(--text-body);line-height:1.6;flex:1;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+.cc-more{font-size:8.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--earth);margin-top:6px;}
+
+/* Loading skeletons */
+.sk-block{background:linear-gradient(90deg,rgba(139,110,78,.1) 0%,rgba(139,110,78,.22) 50%,rgba(139,110,78,.1) 100%);background-size:200% 100%;animation:shimmer 1.6s infinite;border-radius:2px;margin-bottom:10px;}
+@keyframes shimmer{0%{background-position:200% 0;}100%{background-position:-200% 0;}}
+.skeleton-featured{display:grid;grid-template-columns:400px 1fr;background:var(--ink);margin-bottom:3px;min-height:300px;}
+.sk-img{background:rgba(139,110,78,.06);}
+.sk-body{padding:36px 40px;display:flex;flex-direction:column;gap:14px;}
+.sk-tag-el{width:60px;height:18px;}
+.sk-title-el{width:80%;height:28px;margin-top:auto;}
+.sk-excerpt-el{width:100%;height:14px;}
+.sk-excerpt-el.short{width:65%;}
+.skeleton-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3px;background:var(--line);}
+.skeleton-card{background:var(--paper);}
+.sk-card-img{height:130px;background:rgba(139,110,78,.06);}
+.sk-card-body{padding:18px 20px;}
+
+/* MEDIUM NOTE */
+.medium-note{margin-top:48px;padding:24px 32px;background:var(--cream-dark);border-left:3px solid var(--earth);display:flex;align-items:center;gap:20px;flex-wrap:wrap;}
+.mn-dot{width:28px;height:28px;background:var(--ink);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:var(--cream);flex-shrink:0;}
+.mn-text{font-family:'EB Garamond',serif;font-size:16px;font-style:italic;color:var(--text-body);flex:1;line-height:1.6;}
+.mn-text strong{font-style:normal;font-weight:500;color:var(--ink);}
+.mn-link{font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--earth);text-decoration:none;display:flex;align-items:center;gap:6px;transition:color .2s;flex-shrink:0;}
+.mn-link:hover{color:var(--ink);}
+.mn-link::after{content:'↗';}
+
+/* NEWSLETTER */
+.newsletter-band{background:var(--ink);padding:64px 72px;text-align:center;}
+.nl-wrapper{max-width:520px;margin:0 auto;}
+.nl-title{font-family:'Playfair Display',serif;font-size:clamp(24px,3vw,32px);font-weight:700;color:var(--cream);margin-bottom:10px;}
+.nl-subtitle{font-family:'EB Garamond',serif;font-size:17px;font-style:italic;color:rgba(245,239,224,.48);margin-bottom:32px;}
+.nl-form-row{display:flex;max-width:480px;margin:0 auto;}
+.nl-input{flex:1;padding:14px 18px;background:rgba(255,255,255,.06);border:1px solid rgba(139,110,78,.3);border-right:none;color:var(--cream);font-family:'DM Sans',sans-serif;font-size:13px;outline:none;border-radius:0;}
+.nl-input:focus{border-color:var(--earth-light);}
+.nl-input::placeholder{color:rgba(245,239,224,.3);}
+.nl-btn{padding:14px 24px;background:var(--earth);color:var(--cream);border:none;font-size:10px;letter-spacing:.15em;text-transform:uppercase;font-family:'DM Sans',sans-serif;font-weight:500;cursor:pointer;transition:background .2s;white-space:nowrap;}
+.nl-btn:hover{background:var(--earth-light);}
+.nl-checkbox-row{max-width:480px;margin:16px auto 0;text-align:left;}
+.nl-checkbox-label{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:12px;color:rgba(245,239,224,.4);font-family:'DM Sans',sans-serif;line-height:1.5;}
+.nl-checkbox-label input[type="checkbox"]{display:none;}
+.nl-checkbox-label input[type="checkbox"]:checked + .nl-check-box{background:var(--earth);border-color:var(--earth);}
+.nl-checkbox-label input[type="checkbox"]:checked + .nl-check-box::after{content:'✓';position:absolute;top:-1px;left:3px;color:var(--cream);font-size:13px;font-weight:700;}
+.nl-check-box{display:inline-block;width:18px;height:18px;min-width:18px;border:1px solid rgba(139,110,78,.4);background:rgba(255,255,255,.04);border-radius:2px;position:relative;transition:all .2s;margin-top:1px;}
+.nl-check-text{color:rgba(245,239,224,.45);font-size:12px;}
+.nl-check-text a{color:var(--earth-light);text-decoration:underline;}
+.nl-brevo-legal{font-size:10px;color:rgba(245,239,224,.18);margin-top:8px;}
+.nl-brevo-legal a{color:rgba(245,239,224,.28);text-decoration:underline;}
+.nl-brevo-legal a:hover{color:var(--earth-light);}
+.nl-note{font-size:11px;color:rgba(245,239,224,.28);margin-top:16px;font-style:italic;}
+
+/* FOOTER */
+footer{background:var(--ink);border-top:1px solid rgba(139,110,78,.1);padding:24px 72px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:14px;}
+.footer-logo{font-family:'Playfair Display',serif;font-size:14px;font-weight:700;color:var(--cream);text-decoration:none;}
+.footer-nav{display:flex;gap:20px;flex-wrap:wrap;}
+.footer-nav a{font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:rgba(245,239,224,.3);text-decoration:none;transition:color .2s;}
+.footer-nav a:hover{color:var(--earth-light);}
+.footer-copy{font-size:11px;color:rgba(245,239,224,.18);}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  nav{padding:16px 24px;} .nav-links{display:none;} .nav-hamburger{display:flex;}
+  .cuaderno-header{padding:100px 32px 56px;} .cuaderno-header::after{left:32px;}
+  .stats-band{padding:20px 32px;gap:28px;}
+  .cuaderno-body{padding:48px 32px 72px;}
+  .rss-featured{grid-template-columns:1fr;}
+  .rss-featured-img{height:220px;}
+  .rss-cards-grid{grid-template-columns:repeat(2,1fr);}
+  .skeleton-featured{grid-template-columns:1fr;}
+  .sk-img{height:200px;}
+  .skeleton-grid{grid-template-columns:repeat(2,1fr);}
+  .newsletter-band{padding:44px 32px;}
+  footer{padding:20px 32px;flex-direction:column;text-align:center;}
+  .footer-nav{justify-content:center;}
+}
+@media(max-width:560px){
+  .cuaderno-header{padding:88px 24px 48px;}
+  .cuaderno-body{padding:36px 24px 56px;}
+  .stats-band{padding:16px 24px;flex-wrap:wrap;gap:16px;}
+  .rss-cards-grid,.skeleton-grid{grid-template-columns:1fr;}
+  .nl-form-row{flex-direction:column;}
+  .nl-input{border-right:1px solid rgba(139,110,78,.3);border-bottom:none;}
+  footer{padding:20px 24px;}
+  nav{padding:14px 20px;}
+}
+
+/* ── OVERFLOW / HORIZONTAL SCROLL FIX ── */
+html, body {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+img, video, iframe, embed, object {
+  max-width: 100%;
+}
+.x-embed-container,
+.x-embed-container iframe {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+section, header, footer, nav, div {
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+/* ── LANGUAGE SWITCHER ── */
+.lang-switch{display:flex;gap:6px;align-items:center;margin-left:16px;}
+.lang-switch a{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:#8B6E4E;text-decoration:none;padding:4px 6px;transition:color .2s;font-weight:400;}
+.lang-switch a:hover,.lang-switch a.active{color:#1A1A1A;font-weight:600;}
+.lang-switch span{color:rgba(139,110,78,.3);font-size:9px;}
+@media(max-width:1024px){
+  .lang-switch{margin-left:auto;margin-right:16px;}
+  .lang-switch a{font-size:12px;font-weight:500;color:#1A1A1A;padding:6px 8px;}
+  .lang-switch a.active{color:#8B6E4E;font-weight:700;}
+}
+@media(max-width:600px){
+  .lang-switch{margin-right:8px;}
+}
+
+</style>
+<link rel="stylesheet" href="https://sibforms.com/forms/end-form/build/sib-styles.css">
+
+<link rel="alternate" hreflang="es" href="https://antonioromeo.es/cuaderno">
+<link rel="alternate" hreflang="en" href="https://antonioromeo.es/en/cuaderno">
+<link rel="alternate" hreflang="pt" href="https://antonioromeo.es/pt/cuaderno">
+<link rel="alternate" hreflang="x-default" href="https://antonioromeo.es/cuaderno">
+</head>
+<body>
+
+<nav id="nav">
+  <a href="../index.html" class="nav-logo">Antonio Romeo</a>
+  <ul class="nav-links">
+    <li><a href="../index.html#sobre-el-autor">The Author</a></li>
+    <li><a href="../index.html#justo-bagueste">New Book</a></li>
+    <li><a href="index.html" class="active">Notebook</a></li>
+    <li><a href="../hemeroteca/index.html">Press Archive</a></li>
+    <li><a href="../obra/index.html">Works</a></li>
+    <li><a href="../index.html#newsletter" class="nav-cta">Notify Me</a></li>
+  </ul>
+  <button class="nav-hamburger" id="hamburger" aria-label="Menú">
+    <span></span><span></span><span></span>
+  </button>
+<div class="lang-switch"><a href="../../cuaderno/index.html">ES</a><span>|</span><a href="index.html" class="active">EN</a><span>|</span><a href="../../pt/cuaderno/index.html">PT</a></div>
+</nav>
+<ul class="nav-drawer" id="navDrawer">
+  <li><a href="../index.html#sobre-el-autor">The Author</a></li>
+  <li><a href="../index.html#justo-bagueste">New Book</a></li>
+  <li><a href="index.html">Notebook</a></li>
+  <li><a href="../hemeroteca/index.html">Press Archive</a></li>
+  <li><a href="../obra/index.html">Works</a></li>
+  <li><a href="../index.html#newsletter">Notify me about the book</a></li>
+</ul>
+
+<!-- HEADER -->
+<header class="cuaderno-header">
+  <div class="ch-inner">
+    <p class="ch-eyebrow">Contemporary writing · From Portugal</p>
+    <h1 class="ch-title">Cua<em>derno.</em></h1>
+    <p class="ch-desc">Chronicle, fiction—sometimes in Spanish, sometimes in Portuguese. Texts published on Medium about the everyday, the strange and what remains when the music stops.</p>
+    <a href="https://medium.com/@olzinmospas" target="_blank" rel="noopener" class="ch-medium-link">
+      <span class="ch-m-dot">M</span>
+      Follow on Medium · Nuevos texts al publicarse
+    </a>
+  </div>
+</header>
+
+<!-- STATS -->
+<div class="stats-band">
+  <div class="sb-stat">
+    <span class="sb-num" id="cuaderno-count"><span class="sb-loading">loading…</span></span>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-stat">
+    <span class="sb-num">@olzinmospas</span>
+    <span class="sb-lbl">on Medium</span>
+  </div>
+  <div class="sb-divider"></div>
+  <div class="sb-stat">
+    <span class="sb-num">ES · PT</span>
+    <span class="sb-lbl">languages</span>
+  </div>
+</div>
+
+<!-- CONTENIDO DINÁMICO -->
+<div class="cuaderno-body">
+
+  <div id="cuaderno-rss-grid">
+    <!-- Skeleton mientras carga -->
+    <div class="skeleton-featured">
+      <div class="sk-img sk-block"></div>
+      <div class="sk-body">
+        <div class="sk-block sk-tag-el"></div>
+        <div class="sk-block sk-title-el"></div>
+        <div class="sk-block sk-excerpt-el"></div>
+        <div class="sk-block sk-excerpt-el short"></div>
+      </div>
+    </div>
+    <div class="skeleton-grid">
+      <div class="skeleton-card"><div class="sk-card-img sk-block"></div><div class="sk-card-body"><div class="sk-block" style="height:14px;width:50%;margin-bottom:8px;"></div><div class="sk-block" style="height:18px;width:85%;margin-bottom:8px;"></div><div class="sk-block" style="height:13px;"></div></div></div>
+      <div class="skeleton-card"><div class="sk-card-img sk-block"></div><div class="sk-card-body"><div class="sk-block" style="height:14px;width:50%;margin-bottom:8px;"></div><div class="sk-block" style="height:18px;width:85%;margin-bottom:8px;"></div><div class="sk-block" style="height:13px;"></div></div></div>
+      <div class="skeleton-card"><div class="sk-card-img sk-block"></div><div class="sk-card-body"><div class="sk-block" style="height:14px;width:50%;margin-bottom:8px;"></div><div class="sk-block" style="height:18px;width:85%;margin-bottom:8px;"></div><div class="sk-block" style="height:13px;"></div></div></div>
+      <div class="skeleton-card"><div class="sk-card-img sk-block"></div><div class="sk-card-body"><div class="sk-block" style="height:14px;width:50%;margin-bottom:8px;"></div><div class="sk-block" style="height:18px;width:85%;margin-bottom:8px;"></div><div class="sk-block" style="height:13px;"></div></div></div>
+      <div class="skeleton-card"><div class="sk-card-img sk-block"></div><div class="sk-card-body"><div class="sk-block" style="height:14px;width:50%;margin-bottom:8px;"></div><div class="sk-block" style="height:18px;width:85%;margin-bottom:8px;"></div><div class="sk-block" style="height:13px;"></div></div></div>
+      <div class="skeleton-card"><div class="sk-card-img sk-block"></div><div class="sk-card-body"><div class="sk-block" style="height:14px;width:50%;margin-bottom:8px;"></div><div class="sk-block" style="height:18px;width:85%;margin-bottom:8px;"></div><div class="sk-block" style="height:13px;"></div></div></div>
+    </div>
+  </div>
+
+  <div class="medium-note">
+    <div class="mn-dot">M</div>
+    <p class="mn-text">
+      El Notebook se publica en <strong>Medium</strong> de forma irregular, cuando hay algo que contar.
+      Cada texto nuevo que publiques allí aparecerá aquí automáticamente, sin tocar el sitio.
+    </p>
+    <a href="https://medium.com/@olzinmospas" target="_blank" rel="noopener" class="mn-link">Follow on Medium</a>
+  </div>
+</div>
+
+<!-- NEWSLETTER -->
+<section class="newsletter-band" id="newsletter">
+  <div class="nl-wrapper">
+    <h2 class="nl-title">Don't miss a thing.</h2>
+    <p class="nl-subtitle">Nuevas entregas del Notebook, fecha de publicación de Justo Bagüeste y noticias del autor.</p>
+
+    <!-- Brevo Form -->
+    <div class="sib-form" style="text-align:center;">
+      <div id="sib-form-container" class="sib-form-container">
+        <div id="error-message" class="sib-form-message-panel" style="font-size:14px; text-align:center; font-family:'DM Sans',sans-serif; color:#ff6b6b; background-color:rgba(255,107,107,.1); border-radius:3px; border:1px solid rgba(255,107,107,.3); max-width:480px; margin:0 auto 16px; display:none;">
+          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+            <span class="sib-form-message-panel__inner-text">No hemos podido validar su suscripción.</span>
+          </div>
+        </div>
+        <div id="success-message" class="sib-form-message-panel" style="font-size:14px; text-align:center; font-family:'DM Sans',sans-serif; color:#5cb85c; background-color:rgba(92,184,92,.1); border-radius:3px; border:1px solid rgba(92,184,92,.3); max-width:480px; margin:0 auto 16px; display:none;">
+          <div class="sib-form-message-panel__text sib-form-message-panel__text--center">
+            <span class="sib-form-message-panel__inner-text">✓ ¡Apuntado! Te avisamos en cuanto salga el libro.</span>
+          </div>
+        </div>
+        <div id="sib-container" class="sib-container--large sib-container--vertical" style="text-align:center; background-color:transparent; max-width:480px; margin:0 auto; border:none; direction:ltr;">
+          <form id="sib-form" method="POST" action="https://e3522075.sibforms.com/serve/MUIFADd3_f9VW6LnHG5yUSAvCKzBhwuw07QRv64dgcZzKAtMn4ydgwhRUjRl6OFIbDpeLLx-lKKoeIt2v5km91HlIsuqaPTxdMzApw4amrf9Z-eQkc6jrnoUp-hBkcD-HcULjiTjtLLb8asXVe5JgjthnBiaWIufydk4wRB-FaTynMW9BqVTPn9meADoHAqGqiFFxBx9k91a3eCkDw==" data-type="subscription">
+            <div class="nl-form-row">
+              <input class="nl-input" type="email" id="EMAIL" name="EMAIL" autocomplete="email" placeholder="your@email.com" data-required="true" required />
+              <button class="nl-btn" type="submit" form="sib-form">
+                <svg class="icon clickable__icon progress-indicator__icon sib-hide-loader-icon" viewBox="0 0 512 512" style="width:16px;height:16px;display:none;">
+                  <path d="M460.116 373.846l-20.823-12.022c-5.541-3.199-7.54-10.159-4.663-15.874 30.137-59.886 28.343-131.652-5.386-189.946-33.641-58.394-94.896-95.833-161.827-99.676C261.028 55.961 256 50.751 256 44.352V20.309c0-6.904 5.808-12.337 12.703-11.982 83.556 4.306 160.163 50.864 202.11 123.677 42.063 72.696 44.079 162.316 6.031 236.832-3.14 6.148-10.75 8.461-16.728 5.01z" fill="currentColor"/>
+                </svg>
+                Subscribe
+              </button>
+            </div>
+            <div class="nl-checkbox-row">
+              <label class="nl-checkbox-label">
+                <input type="checkbox" class="input_replaced" value="1" id="OPT_IN" name="OPT_IN" required />
+                <span class="nl-check-box"></span>
+                <span class="nl-check-text">Acepto las condiciones y recibir tus newsletters.</span>
+              </label>
+            </div>
+            <input type="text" name="email_address_check" value="" class="input--hidden" style="display:none;">
+            <input type="hidden" name="locale" value="es">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <p class="nl-note">No spam. Only what matters, when it matters.</p>
+    <p class="nl-brevo-legal">Usamos <a href="https://www.brevo.com/es/" target="_blank" rel="noopener">Brevo</a> como plataforma de marketing. <a href="https://www.brevo.com/es/legal/privacypolicy/" target="_blank" rel="noopener">Política de privacidad</a>.</p>
+  </div>
+</section>
+
+<footer>
+  <a href="../index.html" class="footer-logo">Antonio Romeo</a>
+  <nav class="footer-nav">
+    <a href="../index.html#sobre-el-autor">The author</a>
+    <a href="index.html">Notebook</a>
+    <a href="../hemeroteca/index.html">Press Archive</a>
+    <a href="../obra/index.html">Works</a>
+    <a href="../index.html#newsletter">Contact</a>
+  </nav>
+  <p class="footer-copy">© 2025 Antonio Romeo Fernández</p>
+</footer>
+
+<script>
+// Nav
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.style.boxShadow = window.scrollY > 40 ? '0 4px 30px rgba(20,18,16,.08)' : 'none';
+}, {passive:true});
+
+// Hamburger
+const hamburger = document.getElementById('hamburger');
+const drawer = document.getElementById('navDrawer');
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('open');
+  drawer.classList.toggle('open');
+  document.body.style.overflow = drawer.classList.contains('open') ? 'hidden' : '';
+});
+drawer.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+  hamburger.classList.remove('open');
+  drawer.classList.remove('open');
+  document.body.style.overflow = '';
+}));
+
+// Newsletter
+
+</script>
+<script>
+
+// ── MEDIUM RSS LOADER ──────────────────────────────────────────
+(function() {
+  var FEED = 'https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@olzinmospas';
+  var MONTHS_ES = ['ene','feb','mar','abr','may','jun','jul','ago','sep','oct','nov','dic'];
+
+  function fmtDate(str) {
+    var d = new Date(str);
+    return d.getDate() + ' ' + MONTHS_ES[d.getMonth()] + ', ' + d.getFullYear();
+  }
+
+  function stripHtml(html) {
+    var tmp = document.createElement('div');
+    tmp.innerHTML = html;
+    return (tmp.textContent || tmp.innerText || '').replace(/\s+/g, ' ').trim();
+  }
+
+  function excerpt(html, len) {
+    var txt = stripHtml(html);
+    return txt.length > len ? txt.slice(0, len).replace(/\w+$/, '') + '…' : txt;
+  }
+
+  function getImg(item) {
+    // Try thumbnail, then first image in content or description
+    if (item.thumbnail && item.thumbnail.startsWith('http')) return item.thumbnail;
+    var html = item.content || item.description || '';
+    var m = html.match(/<img[^>]+src="([^"]+)"/);
+    if (m) return m[1];
+    // Fallback: check enclosure
+    if (item.enclosure && item.enclosure.link) return item.enclosure.link;
+    return null;
+  }
+
+  function inferTag(item) {
+    var title = (item.title || '').toUpperCase();
+    // GE series detection
+    var ge = title.match(/GE\s*(\d+)/);
+    if (ge) return 'GE' + ge[1];
+    var cats = item.categories || [];
+    if (cats.length) return cats[0];
+    return 'Notebook';
+  }
+
+  // ── HOME: featured + 3 sub-cards ──────────────────────────────
+  function renderHome(items) {
+    var layout = document.getElementById('cuaderno-layout');
+    var countEl = document.getElementById('cs-count');
+    if (!layout) return;
+
+    if (!items || items.length === 0) {
+      layout.innerHTML = '<p style="color:var(--earth);font-family:EB Garamond,serif;font-style:italic;padding:32px;">Could not load texts. <a href="https://medium.com/@olzinmospas" target="_blank" style="color:var(--earth-light)">View on Medium →</a></p>';
+      return;
+    }
+
+    var featured = items[0];
+    var subs = items.slice(1, 4);
+
+    var subHTML = subs.map(function(item) {
+      var img = getImg(item);
+      var imgBg = img ? 'style="background-image:url(' + img + ');background-size:cover;background-position:center;"' : '';
+      return '<a class="cuaderno-card" href="' + item.link + '" target="_blank" rel="noopener">'
+        + '<div class="cc-meta"><span class="cc-tag">' + inferTag(item) + '</span>'
+        + '<span class="cc-date">' + fmtDate(item.pubDate) + '</span></div>'
+        + '<h3 class="cc-title">' + item.title + '</h3>'
+        + '<p class="cc-excerpt">' + excerpt(item.content || item.description, 100) + '</p>'
+        + '<span class="cc-more">Read on Medium</span>'
+        + '</a>';
+    }).join('');
+
+    layout.innerHTML =
+      '<a class="cuaderno-featured" href="' + featured.link + '" target="_blank" rel="noopener">'
+      + '<span class="cf-tag">' + inferTag(featured) + ' · Último</span>'
+      + '<p class="cf-date">' + fmtDate(featured.pubDate) + '</p>'
+      + '<h3 class="cf-title">' + featured.title + '</h3>'
+      + '<p class="cf-excerpt">' + excerpt(featured.content || featured.description, 160) + '</p>'
+      + '<span class="cf-more">Read on Medium</span>'
+      + '</a>'
+      + '<div class="cuaderno-sub-grid">' + subHTML + '</div>';
+
+    layout.classList.add('visible');
+
+    if (countEl) {
+      countEl.textContent = 'Serie completa on Medium · ' + items.length + ' entregas · En español y portugués';
+    }
+  }
+
+  // ── CUADERNO PAGE: full grid ───────────────────────────────────
+  function renderNotebook(items) {
+    var grid = document.getElementById('cuaderno-rss-grid');
+    var countEl = document.getElementById('cuaderno-count');
+    if (!grid) return;
+
+    if (!items || items.length === 0) {
+      grid.innerHTML = '<p style="grid-column:1/-1;color:var(--earth);font-family:EB Garamond,serif;font-style:italic;padding:32px 0;">Could not load texts. <a href="https://medium.com/@olzinmospas" target="_blank" style="color:var(--earth)">View on Medium →</a></p>';
+      return;
+    }
+
+    if (countEl) countEl.textContent = items.length + ' texts publicados';
+
+    var featured = items[0];
+    var rest = items.slice(1);
+
+    // Featured card (full width)
+    var featHTML = '<a class="rss-featured" href="' + featured.link + '" target="_blank" rel="noopener">';
+    var img = getImg(featured);
+    if (img) featHTML += '<div class="rss-featured-img" style="background-image:url(' + img + ')"></div>';
+    featHTML += '<div class="rss-featured-body">'
+      + '<span class="cf-tag">' + inferTag(featured) + ' · Último</span>'
+      + '<h2 class="rss-featured-title">' + featured.title + '</h2>'
+      + '<p class="rss-featured-date">' + fmtDate(featured.pubDate) + '</p>'
+      + '<p class="rss-featured-excerpt">' + excerpt(featured.content || featured.description, 200) + '</p>'
+      + '<span class="cf-more">Read on Medium</span>'
+      + '</div></a>';
+
+    // Rest as cards
+    var cardsHTML = rest.map(function(item) {
+      var img2 = getImg(item);
+      var imgEl = img2 ? '<div class="rss-card-img" style="background-image:url(' + img2 + ')"></div>' : '';
+      return '<a class="rss-card" href="' + item.link + '" target="_blank" rel="noopener">'
+        + imgEl
+        + '<div class="rss-card-body">'
+        + '<div class="cc-meta"><span class="cc-tag">' + inferTag(item) + '</span>'
+        + '<span class="cc-date">' + fmtDate(item.pubDate) + '</span></div>'
+        + '<h3 class="rss-card-title">' + item.title + '</h3>'
+        + '<p class="rss-card-excerpt">' + excerpt(item.content || item.description, 120) + '</p>'
+        + '<span class="cc-more">Read on Medium</span>'
+        + '</div></a>';
+    }).join('');
+
+    grid.innerHTML = featHTML + '<div class="rss-cards-grid">' + cardsHTML + '</div>';
+  }
+
+  // ── FETCH ──────────────────────────────────────────────────────
+  function fetchFeed(cb) {
+    var url = FEED;
+    // Use modern fetch with fallback to XHR
+    if (window.fetch) {
+      fetch(url)
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+          cb(data.status === 'ok' ? data.items : null);
+        })
+        .catch(function() {
+          // Retry once on failure
+          setTimeout(function() {
+            fetch(url)
+              .then(function(r) { return r.json(); })
+              .then(function(data) { cb(data.status === 'ok' ? data.items : null); })
+              .catch(function() { cb(null); });
+          }, 1500);
+        });
+    } else {
+      var xhr = new XMLHttpRequest();
+      xhr.open('GET', url, true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          try {
+            var data = JSON.parse(xhr.responseText);
+            cb(data.status === 'ok' ? data.items : null);
+          } catch(e) { cb(null); }
+        } else { cb(null); }
+      };
+      xhr.onerror = function() { cb(null); };
+      xhr.send();
+    }
+  }
+
+  // ── INIT ───────────────────────────────────────────────────────
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.getElementById('cuaderno-layout') || document.getElementById('cuaderno-rss-grid')) {
+      fetchFeed(function(items) {
+        renderHome(items);
+        renderNotebook(items);
+      });
+    }
+  });
+})();
+
+</script>
+<script>
+// ── BREVO NEWSLETTER INTEGRATION ──────────────────────────────
+window.REQUIRED_CODE_ERROR_MESSAGE = 'Elija un código de país';
+window.LOCALE = 'es';
+window.EMAIL_INVALID_MESSAGE = window.SMS_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+window.REQUIRED_ERROR_MESSAGE = "Este campo no puede quedarse vacío. ";
+window.GENERIC_INVALID_MESSAGE = "La información que ha proporcionado no es válida. Compruebe el formato del campo e inténtelo de nuevo.";
+window.translation = {
+  common: {
+    selectedList: '{quantity} lista seleccionada',
+    selectedLists: '{quantity} listas seleccionadas',
+    selectedOption: '{quantity} seleccionado',
+    selectedOptions: '{quantity} seleccionados',
+  }
+};
+var AUTOHIDE = Boolean(0);
+</script>
+<script defer src="https://sibforms.com/forms/end-form/build/main.js"></script>
+</body>
+</html>

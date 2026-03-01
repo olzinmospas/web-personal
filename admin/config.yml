@@ -1,0 +1,51 @@
+backend:
+  name: github
+  repo: TU-USUARIO/web-personal   # ← cambia TU-USUARIO por tu usuario de GitHub
+  branch: main
+
+media_folder: "assets/img/cronicas"
+public_folder: "/assets/img/cronicas"
+
+collections:
+  # ─── CRÓNICAS ───
+  - name: "cronicas"
+    label: "Crónicas"
+    folder: "hemeroteca"
+    create: true
+    slug: "{{slug}}"
+    extension: "html"
+    format: "frontmatter"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Fecha de publicación", name: "date", widget: "datetime" }
+      - { label: "Medio", name: "medio", widget: "select",
+          options: ["Diario del Altoaragón", "Rockdelux", "El Estado Mental", "Otro"] }
+      - { label: "Temática", name: "tematica", widget: "select",
+          options: ["musica-en-vivo", "concierto", "resena", "entrevista", "festival"] }
+      - { label: "Imagen destacada", name: "image", widget: "image", required: false }
+      - { label: "Extracto (para el grid)", name: "excerpt", widget: "text", pattern: ['.{0,280}', "Máximo 280 caracteres"] }
+      - { label: "Cuerpo del artículo", name: "body", widget: "markdown" }
+      - { label: "Meta descripción (SEO)", name: "meta_description", widget: "string",
+          hint: "Máximo 160 caracteres", pattern: ['.{0,160}', "Máximo 160 caracteres"] }
+      - { label: "Enlace original externo", name: "external_url", widget: "string", required: false }
+
+  # ─── LIBROS ───
+  - name: "libros"
+    label: "Libros"
+    folder: "obra"
+    create: true
+    slug: "{{slug}}"
+    extension: "html"
+    format: "frontmatter"
+    fields:
+      - { label: "Título", name: "title", widget: "string" }
+      - { label: "Tipo", name: "tipo", widget: "select",
+          options: ["Narrativa", "Relatos", "Biografía"] }
+      - { label: "Año", name: "year", widget: "number" }
+      - { label: "Portada", name: "cover", widget: "image", required: false }
+      - { label: "Extracto corto (cards)", name: "excerpt", widget: "text" }
+      - { label: "Sinopsis completa", name: "body", widget: "markdown" }
+      - { label: "URL Amazon", name: "amazon_url", widget: "string", required: false }
+      - { label: "Destacado en Home", name: "featured", widget: "boolean", default: false }
+      - { label: "Meta descripción (SEO)", name: "meta_description", widget: "string",
+          pattern: ['.{0,160}', "Máximo 160 caracteres"] }
